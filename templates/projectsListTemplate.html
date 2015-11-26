@@ -1,0 +1,18 @@
+<ul class="portfolio">
+    <% _.each(projects, function(project){ %>
+    <li class="item col-md-3" data-id="id-<%= project.attributes.id %>" data-type="<%= project.attributes.type %>">
+        <a href="<% if ( project.attributes.video ) { %><%= project.attributes.video %><% } else { %>img/portfolio/<%= project.attributes.img %><% } %>" 
+           data-title="<%= project.attributes.title %>" 
+           data-footer="<div class='details'><h3><%= project.attributes.title %></h3><p><span class='sub'>Tools: </span><%= project.attributes.tools %></p><p><span class='sub'>Description: </span><%= project.attributes.description %></p><% if ( project.attributes.link ) { %><p><span class='sub'>Link: </span><a target='_blank' href='<%= project.attributes.link %>'><%= project.attributes.link %></a></p><% } %><% if ( project.attributes.git ) { %><p><span class='sub'>Git: </span><a target='_blank' href='<%= project.attributes.git %>'><%= project.attributes.git %></a></p><% } %></div>"
+                 data-toggle="lightbox">
+            <div class="pf_item" data-modal="pf_item<%= project.attributes.id %>" 
+                     style="background-image: url(img/portfolio/<%= project.attributes.img %>)">
+                <div class="pf_label">
+                    <h2><%= project.attributes.title %></h2>
+                    <p class="pf_shortdesc"><%= project.attributes.year %> <%= project.attributes.type %></p>
+                </div>
+            </div>
+        </a>
+    </li>
+    <% }); %>
+</ul>
