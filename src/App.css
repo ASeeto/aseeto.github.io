@@ -38,8 +38,9 @@
 }
 
 .App-grid {
+  justify-content: center;
   display: flex;
-  width: 800px;
+  width: 100%;
   flex-wrap: wrap;
   margin: 0 auto;
 }
