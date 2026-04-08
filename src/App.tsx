@@ -1,19 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import blogs from './blogs';
-
-import {Card} from './Card';
+import Header, { TabId } from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import WorkWithMe from './pages/WorkWithMe';
+import homeData from './data/home.json';
 
 function App() {
+  const [activeTab, setActiveTab] = useState<TabId>('about');
+
+  const handleTabChange = (tab: TabId) => {
+    setActiveTab(tab);
+    // Smooth scroll to top on tab switch
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Alexander Seeto</h1>
-      </header>
-      <h2>Engineering Blogs</h2>
-      <div className="App-grid">
-        {blogs.map(({name, url}) => <Card name={name} url={url} />)}
-      </div>
+    <div className="min-h-screen flex flex-col bg-white">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
+      <Header activeTab={activeTab} onTabChange={handleTabChange} />
+
+      <main id="main-content" className="flex-1" role="main">
+        {activeTab === 'about' ? (
+          <Home onWorkWithMeClick={() => handleTabChange('work')} />
+        ) : (
+          <WorkWithMe />
+        )}
+      </main>
+
+      <Footer contact={homeData.contact} />
     </div>
   );
 }

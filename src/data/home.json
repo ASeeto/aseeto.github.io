@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "name": "Alex Seeto",
+    "title": "Web Designer & Developer",
+    "subtitle": "Assistant Director of Software Engineering",
+    "tagline": "Transforming ideas into clean, functional, and artful web experiences.",
+    "bio": "I'm a web designer and developer with years of experience building scalable software and leading engineering teams. As Assistant Director of Software Engineering, I combine strategic thinking with hands-on development to deliver high-quality, functional digital experiences. In addition to my leadership role, I apply the same attention to detail, design sensibility, and technical expertise to web development projects for small businesses and startups. I specialize in minimalistic, mobile-responsive, and visually compelling web projects that balance aesthetics and usability.",
+    "avatarUrl": "",
+    "avatarInitials": "AS"
+  },
+  "skills": [
+    {
+      "category": "Front-End",
+      "icon": "⬡",
+      "items": ["HTML", "CSS", "Tailwind CSS", "JavaScript", "React", "Responsive Design", "Accessibility"]
+    },
+    {
+      "category": "Back-End & Systems",
+      "icon": "⬡",
+      "items": ["Node.js", "Kotlin", "Java", "REST APIs", "Serverless Functions", "System Architecture"]
+    },
+    {
+      "category": "CI/CD & Deployment",
+      "icon": "⬡",
+      "items": ["GitHub Actions", "Netlify", "Vercel", "Automated Builds", "Testing Pipelines"]
+    },
+    {
+      "category": "Design & UX",
+      "icon": "⬡",
+      "items": ["Minimalist Layouts", "Typography", "Mobile-First Design", "Figma", "Accessibility"]
+    },
+    {
+      "category": "Leadership",
+      "icon": "⬡",
+      "items": ["Strategic Planning", "Mentorship", "Cross-Team Collaboration", "Problem-Solving"]
+    }
+  ],
+  "contact": {
+    "email": "alex@example.com",
+    "linkedin": "https://linkedin.com/in/alexseeto",
+    "github": "https://github.com/aseeto"
+  }
+}

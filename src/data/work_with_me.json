@@ -1,0 +1,101 @@
+{
+  "intro": {
+    "heading": "Let's Build Something Together",
+    "subheading": "Work With Me",
+    "body": "I help small businesses and startups bring their web ideas to life. From clean, minimal brochure sites to interactive landing pages, I focus on functional, mobile-responsive, and visually compelling web experiences that elevate your brand and engage your audience."
+  },
+  "services": [
+    {
+      "title": "Custom Website Design",
+      "description": "Minimalist, professional, brand-aligned layouts crafted to reflect your unique identity and convert visitors into customers.",
+      "icon": "✦"
+    },
+    {
+      "title": "Responsive & Accessible",
+      "description": "Sites that work seamlessly across all devices — from desktop to mobile — and are inclusive for all users.",
+      "icon": "◈"
+    },
+    {
+      "title": "Lead Capture & Forms",
+      "description": "Contact forms, newsletter sign-ups, and event registrations that connect you to your audience.",
+      "icon": "◉"
+    },
+    {
+      "title": "E-Commerce & Payments",
+      "description": "Small storefronts, online bookings, and simple checkout flows integrated with Stripe, PayPal, or Shopify.",
+      "icon": "◆"
+    },
+    {
+      "title": "Content Management",
+      "description": "Easy-to-update sites via headless CMS (Sanity, Contentful) so you stay in control of your content.",
+      "icon": "◇"
+    },
+    {
+      "title": "Analytics Ready",
+      "description": "Google Analytics setup, basic conversion tracking, and insights to understand how your site performs.",
+      "icon": "◎"
+    }
+  ],
+  "portfolio": [
+    {
+      "title": "Artisanal Coffee Shop",
+      "description": "A mobile-friendly, scroll-based landing page showcasing a local coffee brand — rich imagery, clean layout, and a warm, inviting feel.",
+      "tags": ["Landing Page", "Mobile-First", "Scroll Animation"],
+      "imageUrl": "",
+      "gradient": "from-amber-400 to-orange-500"
+    },
+    {
+      "title": "Boutique Consulting Firm",
+      "description": "A multi-page professional site with interactive hover effects and a polished, credibility-focused design for a boutique B2B firm.",
+      "tags": ["Multi-Page", "Hover Effects", "Professional"],
+      "imageUrl": "",
+      "gradient": "from-slate-600 to-slate-800"
+    },
+    {
+      "title": "Fictional Startup Product Page",
+      "description": "A storytelling-focused product page with bold CTAs, animated sections, and a modern startup aesthetic.",
+      "tags": ["Startup", "CTA Sections", "Storytelling"],
+      "imageUrl": "",
+      "gradient": "from-blue-500 to-indigo-600"
+    },
+    {
+      "title": "Personal Portfolio Template",
+      "description": "A clean, mobile-first portfolio template demonstrating strong design sensibility, usability, and visual hierarchy.",
+      "tags": ["Portfolio", "Clean Design", "Mobile-First"],
+      "imageUrl": "",
+      "gradient": "from-violet-500 to-purple-600"
+    }
+  ],
+  "integrations": [
+    {
+      "category": "Forms & Lead Capture",
+      "items": ["Netlify Forms", "Formspree", "Mailchimp", "ConvertKit"]
+    },
+    {
+      "category": "Payments & E-Commerce",
+      "items": ["Stripe", "PayPal", "Shopify Lite", "Snipcart"]
+    },
+    {
+      "category": "Content & CMS",
+      "items": ["Sanity", "Contentful", "Strapi", "Notion as CMS"]
+    },
+    {
+      "category": "Analytics & Marketing",
+      "items": ["Google Analytics 4", "Google Tag Manager", "Hotjar", "Plausible"]
+    },
+    {
+      "category": "Social & Media",
+      "items": ["Instagram Embed", "YouTube / Vimeo", "Twitter / X Feed"]
+    },
+    {
+      "category": "Deployment & Hosting",
+      "items": ["Netlify", "Vercel", "GitHub Pages", "GitHub Actions"]
+    }
+  ],
+  "cta": {
+    "heading": "Ready to Start Your Project?",
+    "body": "Interested in working together? Let's discuss your project — from concept to launch, I'll partner with you every step of the way.",
+    "buttonText": "Get In Touch",
+    "email": "alex@example.com"
+  }
+}
