@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <!-- Wood grain filter: feTurbulence produces organic Perlin noise mapped to walnut brown -->
+    <filter id="grain" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="linearRGB">
+      <feTurbulence type="turbulence" baseFrequency="0.015 0.003" numOctaves="4" seed="7" result="noise"/>
+      <feColorMatrix type="matrix"
+        values="0.35 0.20 0.05 0 0.38
+                0.18 0.12 0.03 0 0.22
+                0.05 0.03 0.01 0 0.09
+                0    0    0    1 0"
+        in="noise" result="coloredNoise"/>
+      <feBlend in="SourceGraphic" in2="coloredNoise" mode="multiply" result="blended"/>
+      <feComponentTransfer in="blended">
+        <feFuncR type="linear" slope="1.18" intercept="-0.06"/>
+        <feFuncG type="linear" slope="1.12" intercept="-0.04"/>
+        <feFuncB type="linear" slope="1.05" intercept="-0.02"/>
+      </feComponentTransfer>
+    </filter>
+
+    <!-- Vignette: darkens edges for depth -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#1A0E06" stop-opacity="0.48"/>
+    </radialGradient>
+
+    <!-- Surface gloss: subtle top-left catch-light -->
+    <linearGradient id="gloss" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.09"/>
+      <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.06"/>
+    </linearGradient>
+
+    <!-- Drop shadow for browser card -->
+    <filter id="cardShadow" x="-12%" y="-12%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+
+    <!-- Coffee shop hero gradient -->
+    <linearGradient id="coffeeHero" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8956C"/>
+      <stop offset="100%" stop-color="#A0522D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Layer 1: Wood base fill -->
+  <rect width="800" height="480" fill="#7A5433"/>
+
+  <!-- Layer 2: Grain texture -->
+  <rect width="800" height="480" fill="#7A5433" filter="url(#grain)"/>
+
+  <!-- Layer 3: Vignette -->
+  <rect width="800" height="480" fill="url(#vignette)"/>
+
+  <!-- Layer 4: Surface gloss -->
+  <rect width="800" height="480" fill="url(#gloss)"/>
+
+  <!-- Layer 5: Greenery — leaves bottom-left -->
+  <!-- Leaf 1 (large, back) -->
+  <g transform="translate(-12, 340) rotate(-38)">
+    <path d="M22,0 C70,-45 110,-70 65,-115 C22,-72 -18,-48 22,0 Z" fill="#4A7C59" stroke="#3A6348" stroke-width="0.8"/>
+    <path d="M22,0 C45,-40 55,-80 65,-115" fill="none" stroke="#3A6348" stroke-width="1" stroke-opacity="0.55"/>
+  </g>
+  <!-- Leaf 2 (medium, front-left) -->
+  <g transform="translate(28, 380) rotate(-25)">
+    <path d="M18,0 C55,-35 90,-55 52,-92 C18,-57 -14,-37 18,0 Z" fill="#5E9467" stroke="#3A6348" stroke-width="0.7"/>
+    <path d="M18,0 C36,-32 44,-62 52,-92" fill="none" stroke="#3A6348" stroke-width="0.9" stroke-opacity="0.5"/>
+  </g>
+  <!-- Leaf 3 (small, highlight) -->
+  <g transform="translate(62, 415) rotate(-15)">
+    <path d="M14,0 C42,-28 68,-42 40,-72 C14,-44 -10,-28 14,0 Z" fill="#6FAF7A" stroke="#3A6348" stroke-width="0.6"/>
+    <path d="M14,0 C28,-26 34,-50 40,-72" fill="none" stroke="#3A6348" stroke-width="0.7" stroke-opacity="0.45"/>
+  </g>
+
+  <!-- Layer 6: Browser mockup card -->
+  <g transform="translate(160, 54) rotate(-1.5, 240, 190)" filter="url(#cardShadow)">
+    <!-- Card body -->
+    <rect x="0" y="0" width="480" height="370" rx="10" fill="#F8F9FA" stroke="#E2E8F0" stroke-width="1.5"/>
+
+    <!-- Browser chrome bar -->
+    <rect x="0" y="0" width="480" height="34" rx="10" fill="#ECEEF0"/>
+    <rect x="0" y="24" width="480" height="10" fill="#ECEEF0"/>
+
+    <!-- Traffic lights -->
+    <circle cx="18" cy="17" r="5" fill="#FC5F57"/>
+    <circle cx="34" cy="17" r="5" fill="#FDBC2C"/>
+    <circle cx="50" cy="17" r="5" fill="#25C940"/>
+
+    <!-- URL bar -->
+    <rect x="80" y="10" width="300" height="14" rx="7" fill="#FFFFFF" opacity="0.72"/>
+
+    <!-- ── CONTENT: Coffee Shop ── -->
+
+    <!-- Hero image band (terracotta gradient) -->
+    <rect x="0" y="34" width="480" height="100" fill="url(#coffeeHero)"/>
+
+    <!-- Nav links in hero -->
+    <rect x="340" y="44" width="42" height="10" rx="5" fill="#FFFFFF" opacity="0.75"/>
+    <rect x="390" y="44" width="36" height="10" rx="5" fill="#FFFFFF" opacity="0.75"/>
+    <rect x="433" y="44" width="32" height="10" rx="5" fill="#FFFFFF" opacity="0.75"/>
+
+    <!-- Site name / logo text in hero -->
+    <rect x="20" y="44" width="90" height="11" rx="3" fill="#FFFFFF" opacity="0.9"/>
+
+    <!-- Coffee cup circle icon centered in hero -->
+    <circle cx="240" cy="84" r="22" fill="#FAF6F0" opacity="0.88"/>
+    <!-- Cup body -->
+    <rect x="229" y="79" width="22" height="16" rx="3" fill="#A0522D"/>
+    <!-- Cup handle -->
+    <path d="M251,84 Q260,84 260,92 Q260,98 251,98" fill="none" stroke="#A0522D" stroke-width="2.5"/>
+    <!-- Steam lines -->
+    <path d="M234,77 Q236,73 234,69" fill="none" stroke="#C8956C" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M240,76 Q242,71 240,66" fill="none" stroke="#C8956C" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M246,77 Q248,73 246,69" fill="none" stroke="#C8956C" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Section title bars -->
+    <rect x="160" y="148" width="160" height="10" rx="4" fill="#5C3D2E" opacity="0.6"/>
+    <rect x="120" y="164" width="240" height="7" rx="3" fill="#9B7B60" opacity="0.5"/>
+
+    <!-- 3-column feature icons row -->
+    <!-- Col 1 -->
+    <circle cx="105" cy="208" r="18" fill="#FEF3E8" stroke="#E8C49A" stroke-width="1"/>
+    <rect x="74" y="232" width="62" height="6" rx="3" fill="#7A5433" opacity="0.4"/>
+    <rect x="82" y="243" width="46" height="5" rx="2.5" fill="#9B7B60" opacity="0.35"/>
+    <!-- Col 2 -->
+    <circle cx="240" cy="208" r="18" fill="#FEF3E8" stroke="#E8C49A" stroke-width="1"/>
+    <rect x="209" y="232" width="62" height="6" rx="3" fill="#7A5433" opacity="0.4"/>
+    <rect x="217" y="243" width="46" height="5" rx="2.5" fill="#9B7B60" opacity="0.35"/>
+    <!-- Col 3 -->
+    <circle cx="375" cy="208" r="18" fill="#FEF3E8" stroke="#E8C49A" stroke-width="1"/>
+    <rect x="344" y="232" width="62" height="6" rx="3" fill="#7A5433" opacity="0.4"/>
+    <rect x="352" y="243" width="46" height="5" rx="2.5" fill="#9B7B60" opacity="0.35"/>
+
+    <!-- CTA button (warm orange) -->
+    <rect x="175" y="268" width="130" height="22" rx="11" fill="#D4763B"/>
+    <rect x="200" y="275" width="80" height="8" rx="4" fill="#FFFFFF" opacity="0.85"/>
+
+    <!-- Divider line -->
+    <rect x="20" y="302" width="440" height="1" fill="#E2D5C8" opacity="0.7"/>
+
+    <!-- Footer strip -->
+    <rect x="0" y="336" width="480" height="34" rx="0" fill="#3B2417"/>
+    <!-- Footer content -->
+    <rect x="20" y="346" width="60" height="7" rx="3" fill="#FFFFFF" opacity="0.45"/>
+    <rect x="340" y="346" width="40" height="7" rx="3" fill="#FFFFFF" opacity="0.35"/>
+    <rect x="388" y="346" width="40" height="7" rx="3" fill="#FFFFFF" opacity="0.35"/>
+    <rect x="0" y="336" width="480" height="34" rx="10" fill="transparent"/>
+    <!-- fix rounding at bottom -->
+    <rect x="0" y="345" width="480" height="25" fill="#3B2417"/>
+    <rect x="0" y="360" width="480" height="10" rx="10" fill="#3B2417"/>
+  </g>
+</svg>

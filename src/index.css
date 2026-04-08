@@ -197,16 +197,23 @@ code {
 }
 
 /* ============================================================
-   Hero gradient background
+   Hero background — light walnut veneer + tech dot grid
+   Warm parchment/linen tone keeps existing dark text readable
+   (text-gray-900 on #FAF6F0 = ~18:1 contrast ratio, WCAG AAA)
    ============================================================ */
 .hero-bg {
-  background: linear-gradient(
-    135deg,
-    #ffffff 0%,
-    #EFF6FF 40%,
-    #DBEAFE 70%,
-    #EEF2FF 100%
-  );
+  background-color: #FAF6F0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='12' cy='12' r='1.2' fill='%23C8B8A8' fill-opacity='0.55'/%3E%3C/svg%3E"),
+    linear-gradient(
+      160deg,
+      #FAF6F0 0%,
+      #F5EDE0 30%,
+      #F0E4D4 60%,
+      #EDE3D5 100%
+    );
+  background-size: 24px 24px, cover;
+  background-position: 0 0, center;
 }
 
 /* ============================================================

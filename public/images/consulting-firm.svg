@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <filter id="grain" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="linearRGB">
+      <feTurbulence type="turbulence" baseFrequency="0.015 0.003" numOctaves="4" seed="13" result="noise"/>
+      <feColorMatrix type="matrix"
+        values="0.35 0.20 0.05 0 0.38
+                0.18 0.12 0.03 0 0.22
+                0.05 0.03 0.01 0 0.09
+                0    0    0    1 0"
+        in="noise" result="coloredNoise"/>
+      <feBlend in="SourceGraphic" in2="coloredNoise" mode="multiply" result="blended"/>
+      <feComponentTransfer in="blended">
+        <feFuncR type="linear" slope="1.18" intercept="-0.06"/>
+        <feFuncG type="linear" slope="1.12" intercept="-0.04"/>
+        <feFuncB type="linear" slope="1.05" intercept="-0.02"/>
+      </feComponentTransfer>
+    </filter>
+
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#1A0E06" stop-opacity="0.48"/>
+    </radialGradient>
+
+    <linearGradient id="gloss" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.09"/>
+      <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.06"/>
+    </linearGradient>
+
+    <filter id="cardShadow" x="-12%" y="-12%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+
+  <!-- Wood base -->
+  <rect width="800" height="480" fill="#7A5433"/>
+  <rect width="800" height="480" fill="#7A5433" filter="url(#grain)"/>
+  <rect width="800" height="480" fill="url(#vignette)"/>
+  <rect width="800" height="480" fill="url(#gloss)"/>
+
+  <!-- Greenery — top-right corner -->
+  <!-- Leaf 1 (large) -->
+  <g transform="translate(750, 80) rotate(35)">
+    <path d="M20,0 C65,-42 105,-65 62,-108 C20,-68 -16,-44 20,0 Z" fill="#4A7C59" stroke="#3A6348" stroke-width="0.8"/>
+    <path d="M20,0 C42,-38 52,-76 62,-108" fill="none" stroke="#3A6348" stroke-width="1" stroke-opacity="0.55"/>
+  </g>
+  <!-- Leaf 2 (medium) -->
+  <g transform="translate(790, 145) rotate(50)">
+    <path d="M16,0 C50,-33 82,-50 48,-85 C16,-53 -12,-34 16,0 Z" fill="#5E9467" stroke="#3A6348" stroke-width="0.7"/>
+    <path d="M16,0 C32,-30 40,-58 48,-85" fill="none" stroke="#3A6348" stroke-width="0.8" stroke-opacity="0.5"/>
+  </g>
+
+  <!-- Browser mockup card -->
+  <g transform="translate(162, 54) rotate(-1.5, 240, 190)" filter="url(#cardShadow)">
+    <!-- Card body -->
+    <rect x="0" y="0" width="480" height="370" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+
+    <!-- Browser chrome -->
+    <rect x="0" y="0" width="480" height="34" rx="10" fill="#ECEEF0"/>
+    <rect x="0" y="24" width="480" height="10" fill="#ECEEF0"/>
+    <circle cx="18" cy="17" r="5" fill="#FC5F57"/>
+    <circle cx="34" cy="17" r="5" fill="#FDBC2C"/>
+    <circle cx="50" cy="17" r="5" fill="#25C940"/>
+    <rect x="80" y="10" width="300" height="14" rx="7" fill="#FFFFFF" opacity="0.72"/>
+
+    <!-- ── CONTENT: Boutique Consulting Firm ── -->
+
+    <!-- Dark slate nav bar -->
+    <rect x="0" y="34" width="480" height="32" fill="#1E293B"/>
+    <!-- Logo block -->
+    <rect x="18" y="44" width="55" height="11" rx="3" fill="#FFFFFF" opacity="0.9"/>
+    <!-- Nav links -->
+    <rect x="310" y="45" width="38" height="9" rx="4" fill="#FFFFFF" opacity="0.55"/>
+    <rect x="355" y="45" width="38" height="9" rx="4" fill="#FFFFFF" opacity="0.55"/>
+    <rect x="400" y="44" width="60" height="11" rx="5" fill="#3B82F6" opacity="0.9"/>
+
+    <!-- Hero text area — light gray background -->
+    <rect x="0" y="66" width="480" height="112" fill="#F8FAFC"/>
+
+    <!-- h1 stub -->
+    <rect x="24" y="84" width="280" height="14" rx="4" fill="#1E293B" opacity="0.82"/>
+    <!-- h2/subtitle stub -->
+    <rect x="24" y="104" width="210" height="9" rx="3" fill="#94A3B8" opacity="0.8"/>
+    <rect x="24" y="118" width="170" height="9" rx="3" fill="#94A3B8" opacity="0.5"/>
+    <!-- CTA button -->
+    <rect x="24" y="138" width="100" height="24" rx="6" fill="#3B82F6"/>
+    <rect x="42" y="147" width="64" height="7" rx="3" fill="#FFFFFF" opacity="0.88"/>
+    <!-- Secondary outline button -->
+    <rect x="132" y="138" width="88" height="24" rx="6" fill="transparent" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect x="148" y="147" width="56" height="7" rx="3" fill="#64748B" opacity="0.6"/>
+
+    <!-- Services section label -->
+    <rect x="24" y="190" width="80" height="7" rx="3" fill="#64748B" opacity="0.5"/>
+    <rect x="24" y="200" width="150" height="11" rx="4" fill="#1E293B" opacity="0.7"/>
+
+    <!-- 3-column service cards -->
+    <!-- Card 1 -->
+    <rect x="18" y="222" width="138" height="80" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2"/>
+    <circle cx="42" cy="242" r="10" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <rect x="58" y="237" width="82" height="8" rx="3" fill="#1E293B" opacity="0.55"/>
+    <rect x="22" y="260" width="128" height="6" rx="3" fill="#94A3B8" opacity="0.55"/>
+    <rect x="22" y="271" width="100" height="6" rx="3" fill="#94A3B8" opacity="0.4"/>
+    <rect x="22" y="282" width="112" height="6" rx="3" fill="#94A3B8" opacity="0.3"/>
+    <!-- Card 2 -->
+    <rect x="170" y="222" width="138" height="80" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2"/>
+    <circle cx="194" cy="242" r="10" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <rect x="210" y="237" width="82" height="8" rx="3" fill="#1E293B" opacity="0.55"/>
+    <rect x="174" y="260" width="128" height="6" rx="3" fill="#94A3B8" opacity="0.55"/>
+    <rect x="174" y="271" width="100" height="6" rx="3" fill="#94A3B8" opacity="0.4"/>
+    <rect x="174" y="282" width="112" height="6" rx="3" fill="#94A3B8" opacity="0.3"/>
+    <!-- Card 3 -->
+    <rect x="322" y="222" width="138" height="80" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2"/>
+    <circle cx="346" cy="242" r="10" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <rect x="362" y="237" width="82" height="8" rx="3" fill="#1E293B" opacity="0.55"/>
+    <rect x="326" y="260" width="128" height="6" rx="3" fill="#94A3B8" opacity="0.55"/>
+    <rect x="326" y="271" width="100" height="6" rx="3" fill="#94A3B8" opacity="0.4"/>
+    <rect x="326" y="282" width="112" height="6" rx="3" fill="#94A3B8" opacity="0.3"/>
+
+    <!-- Testimonial band -->
+    <rect x="0" y="312" width="480" height="44" fill="#F1F5F9"/>
+    <!-- Quote marks -->
+    <text x="120" y="330" font-size="24" fill="#CBD5E1" font-family="Georgia,serif" opacity="0.8">"</text>
+    <!-- Testimonial text bar centered -->
+    <rect x="140" y="327" width="200" height="7" rx="3" fill="#64748B" opacity="0.45"/>
+    <rect x="170" y="339" width="140" height="6" rx="3" fill="#94A3B8" opacity="0.4"/>
+
+    <!-- Footer -->
+    <rect x="0" y="356" width="480" height="14" rx="0" fill="#0F172A"/>
+    <rect x="0" y="356" width="480" height="14" rx="10" fill="#0F172A"/>
+    <rect x="0" y="360" width="480" height="10" fill="#0F172A"/>
+  </g>
+</svg>
