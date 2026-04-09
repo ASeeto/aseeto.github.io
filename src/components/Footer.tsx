@@ -29,64 +29,60 @@ const EmailIcon = () => (
   </svg>
 );
 
+const iconBtn = (base: React.CSSProperties) => ({
+  enter: (e: React.MouseEvent) => {
+    (e.currentTarget as HTMLElement).style.color = 'var(--color-text)';
+    (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--color-bg-alt)';
+  },
+  leave: (e: React.MouseEvent) => {
+    (e.currentTarget as HTMLElement).style.color = 'var(--color-text-3)';
+    (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent';
+  },
+  style: base,
+});
+
 const Footer: React.FC<FooterProps> = ({ contact }) => {
   const currentYear = new Date().getFullYear();
   const mailtoHref = `mailto:${contact.email.replace('@', '+business@')}`;
+  const btn = iconBtn({ color: 'var(--color-text-3)' });
 
   return (
-    <footer className="border-t mt-auto" style={{ backgroundColor: '#f2e9e4', borderColor: '#c9ada7' }}>
+    <footer className="border-t mt-auto" style={{ backgroundColor: 'var(--color-bg)', borderColor: 'var(--color-border)' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+
           {/* Left: Branding */}
           <div className="flex items-center gap-2">
             <span
-              className="w-6 h-6 rounded-md flex items-center justify-center text-white text-xs font-bold"
-              style={{ background: 'linear-gradient(135deg, #22223b, #4a4e69)' }}
+              className="w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold"
+              style={{ background: 'linear-gradient(135deg, var(--color-accent), var(--color-accent-hover))', color: 'var(--color-bg)' }}
             >
               AS
             </span>
-            <p className="text-sm" style={{ color: '#9a8c98' }}>
+            <p className="text-sm" style={{ color: 'var(--color-text-3)' }}>
               &copy; {currentYear} Alex Seeto. All rights reserved.
             </p>
           </div>
 
           {/* Right: Social Links */}
           <div className="flex items-center gap-2">
-            <a
-              href={contact.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile"
-              className="p-2 rounded-lg transition-colors duration-200"
-              style={{ color: '#9a8c98' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#22223b'; (e.currentTarget as HTMLElement).style.backgroundColor = '#ebe3dc'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#9a8c98'; (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent'; }}
-            >
+            <a href={contact.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"
+               className="p-2 rounded-lg transition-colors duration-200" style={btn.style}
+               onMouseEnter={btn.enter} onMouseLeave={btn.leave}>
               <GitHubIcon />
             </a>
-            <a
-              href={contact.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn profile"
-              className="p-2 rounded-lg transition-colors duration-200"
-              style={{ color: '#9a8c98' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#4a4e69'; (e.currentTarget as HTMLElement).style.backgroundColor = '#ebe3dc'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#9a8c98'; (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent'; }}
-            >
+            <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"
+               className="p-2 rounded-lg transition-colors duration-200" style={btn.style}
+               onMouseEnter={btn.enter} onMouseLeave={btn.leave}>
               <LinkedInIcon />
             </a>
-            <a
-              href={mailtoHref}
-              aria-label="Send email"
-              className="p-2 rounded-lg transition-colors duration-200"
-              style={{ color: '#9a8c98' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#4a4e69'; (e.currentTarget as HTMLElement).style.backgroundColor = '#ebe3dc'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#9a8c98'; (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent'; }}
-            >
+            <a href={mailtoHref} aria-label="Send email"
+               className="p-2 rounded-lg transition-colors duration-200" style={btn.style}
+               onMouseEnter={btn.enter} onMouseLeave={btn.leave}>
               <EmailIcon />
             </a>
           </div>
+
         </div>
       </div>
     </footer>

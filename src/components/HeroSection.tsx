@@ -47,54 +47,48 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hero, onWorkWithMeClick }) =>
                 transform: visible ? 'translateY(0)' : 'translateY(28px)',
               }}
             >
-              {/* Label */}
               <p className="section-subtitle mb-4">Portfolio</p>
 
-              {/* Name */}
               <h1
                 id="hero-name"
                 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none mb-3"
-                style={{ color: '#22223b' }}
+                style={{ color: 'var(--color-text)' }}
               >
                 {hero.name}
               </h1>
 
-              {/* Title + subtitle */}
               <div className="mb-1">
-                <span className="text-lg sm:text-xl font-semibold" style={{ color: '#4a4e69' }}>
+                <span className="text-lg sm:text-xl font-semibold" style={{ color: 'var(--color-text-2)' }}>
                   {hero.title}
                 </span>
               </div>
               <div className="mb-3">
-                <span className="text-sm sm:text-base font-medium" style={{ color: '#9a8c98' }}>
+                <span className="text-sm sm:text-base font-medium" style={{ color: 'var(--color-text-3)' }}>
                   {hero.subtitle}
                 </span>
               </div>
 
               {/* Travel location strip */}
-              <div className="flex items-center gap-1.5 mb-5 text-sm" style={{ color: '#9a8c98' }}>
+              <div className="flex items-center gap-1.5 mb-5 text-sm" style={{ color: 'var(--color-text-3)' }}>
                 <AirplaneIcon />
                 <span>MA</span>
-                <span style={{ color: '#c9ada7' }}>→</span>
+                <span style={{ color: 'var(--color-border)' }}>→</span>
                 <span>NY</span>
-                <span style={{ color: '#c9ada7' }}>→</span>
+                <span style={{ color: 'var(--color-border)' }}>→</span>
                 <span>VA</span>
               </div>
 
-              {/* Tagline */}
               <p
                 className="text-lg sm:text-xl italic font-light leading-relaxed mb-6 border-l-2 pl-4"
-                style={{ color: '#4a4e69', borderColor: '#c9ada7' }}
+                style={{ color: 'var(--color-text-2)', borderColor: 'var(--color-border)' }}
               >
                 "{hero.tagline}"
               </p>
 
-              {/* Bio */}
-              <p className="leading-relaxed text-base sm:text-lg mb-10 max-w-xl" style={{ color: '#4a4e69' }}>
+              <p className="leading-relaxed text-base sm:text-lg mb-10 max-w-xl" style={{ color: 'var(--color-text-2)' }}>
                 {hero.bio}
               </p>
 
-              {/* CTA Buttons */}
               <div className="flex flex-wrap gap-3">
                 <button onClick={scrollToSkills} className="btn-primary btn-ripple">
                   View My Skills
@@ -123,8 +117,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hero, onWorkWithMeClick }) =>
           >
             <div className="relative">
               {/* Decorative rings */}
-              <div className="absolute inset-0 rounded-full border-2 scale-110 opacity-50" style={{ borderColor: '#c9ada7' }} aria-hidden="true" />
-              <div className="absolute inset-0 rounded-full border scale-125 opacity-30" style={{ borderColor: '#c9ada7' }} aria-hidden="true" />
+              <div className="absolute inset-0 rounded-full border-2 scale-110 opacity-50" style={{ borderColor: 'var(--color-border)' }} aria-hidden="true" />
+              <div className="absolute inset-0 rounded-full border scale-125 opacity-30" style={{ borderColor: 'var(--color-border)' }} aria-hidden="true" />
 
               {/* Avatar */}
               <div
@@ -144,10 +138,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hero, onWorkWithMeClick }) =>
               {/* Status badge */}
               <div
                 className="absolute -bottom-2 left-1/2 -translate-x-1/2 z-20 shadow-md rounded-full px-4 py-1.5 flex items-center gap-2 whitespace-nowrap border"
-                style={{ background: '#f2e9e4', borderColor: '#c9ada7' }}
+                style={{ backgroundColor: 'var(--color-bg)', borderColor: 'var(--color-border)' }}
               >
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" aria-hidden="true" />
-                <span className="text-xs font-medium" style={{ color: '#4a4e69' }}>Available for projects</span>
+                <span className="text-xs font-medium" style={{ color: 'var(--color-text-2)' }}>Available for projects</span>
               </div>
             </div>
           </div>

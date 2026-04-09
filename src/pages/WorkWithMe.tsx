@@ -24,20 +24,17 @@ const WorkWithMe: React.FC = () => {
           <div className="max-w-3xl">
             <div
               className="transition-all duration-700 ease-out"
-              style={{
-                opacity: heroVisible ? 1 : 0,
-                transform: heroVisible ? 'translateY(0)' : 'translateY(28px)',
-              }}
+              style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? 'translateY(0)' : 'translateY(28px)' }}
             >
               <p className="section-subtitle mb-4">{workData.intro.subheading}</p>
               <h1
                 id="wwm-heading"
                 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none mb-6"
-                style={{ color: '#22223b' }}
+                style={{ color: 'var(--color-text)' }}
               >
                 {workData.intro.heading}
               </h1>
-              <p className="text-lg sm:text-xl leading-relaxed max-w-2xl" style={{ color: '#4a4e69' }}>
+              <p className="text-lg sm:text-xl leading-relaxed max-w-2xl" style={{ color: 'var(--color-text-2)' }}>
                 {workData.intro.body}
               </p>
             </div>
@@ -49,7 +46,7 @@ const WorkWithMe: React.FC = () => {
       <section
         ref={servicesRef as React.RefObject<HTMLElement>}
         className="py-20 sm:py-28"
-        style={{ backgroundColor: '#f2e9e4' }}
+        style={{ backgroundColor: 'var(--color-bg)' }}
         aria-labelledby="services-heading"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,13 +63,13 @@ const WorkWithMe: React.FC = () => {
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center text-lg mb-4"
-                  style={{ background: 'linear-gradient(135deg, #f2e9e4, #ebe3dc)' }}
+                  style={{ background: 'linear-gradient(135deg, var(--color-bg), var(--color-bg-alt))' }}
                   aria-hidden="true"
                 >
                   {service.icon}
                 </div>
-                <h3 className="font-semibold mb-2 text-sm" style={{ color: '#22223b' }}>{service.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#9a8c98' }}>{service.description}</p>
+                <h3 className="font-semibold mb-2 text-sm" style={{ color: 'var(--color-text)' }}>{service.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text-3)' }}>{service.description}</p>
               </div>
             ))}
           </div>
@@ -80,25 +77,20 @@ const WorkWithMe: React.FC = () => {
       </section>
 
       {/* ─── Portfolio Grid ──────────────────────────────────────────── */}
-      <PortfolioGrid
-        portfolio={workData.portfolio}
-        sectionLabel="Example Projects"
-      />
+      <PortfolioGrid portfolio={workData.portfolio} sectionLabel="Example Projects" />
 
       {/* ─── Integrations & Back-End ────────────────────────────────── */}
       <section
         ref={integrationsRef as React.RefObject<HTMLElement>}
         className="py-20 sm:py-28"
-        style={{ backgroundColor: '#ebe3dc' }}
+        style={{ backgroundColor: 'var(--color-bg-alt)' }}
         aria-labelledby="integrations-heading"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14 reveal">
             <p className="section-subtitle mb-3">Technical Stack</p>
-            <h2 id="integrations-heading" className="section-title">
-              Integrations &amp; Tools
-            </h2>
-            <p className="mt-4 max-w-xl mx-auto text-sm sm:text-base" style={{ color: '#9a8c98' }}>
+            <h2 id="integrations-heading" className="section-title">Integrations &amp; Tools</h2>
+            <p className="mt-4 max-w-xl mx-auto text-sm sm:text-base" style={{ color: 'var(--color-text-3)' }}>
               Every project is paired with the right tools for your goals — from forms and
               payments to CMS, analytics, and deployment.
             </p>
@@ -109,18 +101,22 @@ const WorkWithMe: React.FC = () => {
               <div
                 key={group.category}
                 className={`reveal reveal-delay-${Math.min(idx + 1, 6)} bg-white rounded-2xl p-6 border transition-all duration-300`}
-                style={{ borderColor: '#c9ada7' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = '#9a8c98'; (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 16px 0 rgba(34,34,59,0.07)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = '#c9ada7'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}
+                style={{ borderColor: 'var(--color-border)' }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-border-strong)';
+                  (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 16px 0 rgba(34,34,59,0.07)';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-border)';
+                  (e.currentTarget as HTMLElement).style.boxShadow = 'none';
+                }}
               >
-                <h3 className="font-semibold text-sm mb-3 pb-2 border-b" style={{ color: '#22223b', borderColor: '#c9ada7' }}>
+                <h3 className="font-semibold text-sm mb-3 pb-2 border-b" style={{ color: 'var(--color-text)', borderColor: 'var(--color-border)' }}>
                   {group.category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((item) => (
-                    <span key={item} className="tag-badge">
-                      {item}
-                    </span>
+                    <span key={item} className="tag-badge">{item}</span>
                   ))}
                 </div>
               </div>
@@ -130,11 +126,7 @@ const WorkWithMe: React.FC = () => {
       </section>
 
       {/* ─── CTA + Contact ──────────────────────────────────────────── */}
-      <ContactForm
-        contact={homeData.contact}
-        heading={workData.cta.heading}
-        subheading={workData.cta.body}
-      />
+      <ContactForm contact={homeData.contact} heading={workData.cta.heading} subheading={workData.cta.body} />
     </div>
   );
 };

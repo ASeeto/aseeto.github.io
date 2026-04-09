@@ -6,23 +6,6 @@
 @tailwind utilities;
 
 /* ============================================================
-   CSS Custom Properties
-   ============================================================ */
-:root {
-  --accent:         #22223b;
-  --accent-dark:    #4a4e69;
-  --accent-light:   #c9ada7;
-  --accent-subtle:  #f2e9e4;
-  --gray-50:        #f2e9e4;
-  --gray-100:       #ebe3dc;
-  --gray-200:       #c9ada7;
-  --gray-600:       #9a8c98;
-  --gray-800:       #4a4e69;
-  --gray-900:       #22223b;
-  --transition-speed: 0.25s;
-}
-
-/* ============================================================
    Global Base Overrides
    ============================================================ */
 *,
@@ -39,8 +22,8 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f2e9e4;
-  color: var(--gray-900);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   margin: 0;
 }
 
@@ -77,7 +60,7 @@ code {
   position: absolute;
   bottom: 0;
   height: 2px;
-  background-color: var(--accent);
+  background-color: var(--color-accent);
   border-radius: 9999px;
   transition: left var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1),
               width var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
@@ -114,14 +97,24 @@ code {
 @layer components {
   .tag-badge {
     @apply inline-block px-3 py-1 rounded-full text-xs font-medium
-           bg-[#f2e9e4] text-[#22223b] border border-[#c9ada7]
-           transition-colors duration-200 hover:bg-[#ebe3dc] cursor-default;
+           border transition-colors duration-200 cursor-default;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+  .tag-badge:hover {
+    background-color: var(--color-bg-alt);
   }
 
   .tag-badge-gray {
     @apply inline-block px-3 py-1 rounded-full text-xs font-medium
-           bg-[#f2e9e4] text-[#4a4e69] border border-[#c9ada7]
-           transition-colors duration-200 hover:bg-[#ebe3dc] cursor-default;
+           border transition-colors duration-200 cursor-default;
+    background-color: var(--color-bg);
+    color: var(--color-text-2);
+    border-color: var(--color-border);
+  }
+  .tag-badge-gray:hover {
+    background-color: var(--color-bg-alt);
   }
 
   .card-hover {
@@ -135,22 +128,12 @@ code {
            transition-colors duration-200
            focus:outline-none focus:ring-2 focus:ring-offset-2
            disabled:opacity-60 disabled:cursor-not-allowed;
-    background-color: #22223b;
-    color: #f2e9e4;
-    focus-ring-color: #9a8c98;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    --tw-ring-color: var(--color-border-strong);
   }
-
-  .btn-primary:hover {
-    background-color: #4a4e69;
-  }
-
-  .btn-primary:active {
-    background-color: #22223b;
-  }
-
-  .btn-primary:focus {
-    --tw-ring-color: #9a8c98;
-  }
+  .btn-primary:hover  { background-color: var(--color-accent-hover); }
+  .btn-primary:active { background-color: var(--color-accent); }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2
@@ -158,54 +141,41 @@ code {
            border transition-colors duration-200
            focus:outline-none focus:ring-2 focus:ring-offset-2;
     background-color: transparent;
-    color: #22223b;
-    border-color: #c9ada7;
+    color: var(--color-text);
+    border-color: var(--color-border);
+    --tw-ring-color: var(--color-border-strong);
   }
-
-  .btn-secondary:hover {
-    background-color: #f2e9e4;
-    border-color: #9a8c98;
-  }
-
-  .btn-secondary:active {
-    background-color: #ebe3dc;
-  }
-
-  .btn-secondary:focus {
-    --tw-ring-color: #9a8c98;
-  }
+  .btn-secondary:hover  { background-color: var(--color-bg); border-color: var(--color-border-strong); }
+  .btn-secondary:active { background-color: var(--color-bg-alt); }
 
   .section-title {
     @apply text-2xl sm:text-3xl font-bold tracking-tight;
-    color: #22223b;
+    color: var(--color-text);
   }
 
   .section-subtitle {
     @apply text-sm font-medium tracking-widest uppercase;
-    color: #9a8c98;
+    color: var(--color-text-3);
   }
 
   .input-field {
     @apply w-full px-4 py-3 rounded-lg border text-sm
-           bg-white
-           focus:outline-none focus:ring-2 focus:border-transparent
+           bg-white focus:outline-none focus:ring-2 focus:border-transparent
            transition-shadow duration-200;
-    border-color: #c9ada7;
-    color: #22223b;
-    --tw-ring-color: #9a8c98;
+    border-color: var(--color-border);
+    color: var(--color-text);
+    --tw-ring-color: var(--color-border-strong);
   }
-
   .input-field::placeholder {
-    color: #9a8c98;
+    color: var(--color-text-3);
   }
 
   .service-card {
     @apply p-6 rounded-2xl bg-white border transition-all duration-300;
-    border-color: #c9ada7;
+    border-color: var(--color-border);
   }
-
   .service-card:hover {
-    border-color: #9a8c98;
+    border-color: var(--color-border-strong);
     @apply shadow-md;
   }
 }
@@ -232,26 +202,19 @@ code {
    Avatar gradient placeholder
    ============================================================ */
 .avatar-placeholder {
-  background: linear-gradient(135deg, #4a4e69 0%, #9a8c98 60%, #c9ada7 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-text-3) 60%, var(--color-border) 100%);
   animation: fadeInScale 0.6s ease-out forwards;
 }
 
 /* ============================================================
-   Hero background — warm cream with subtle dot grid
-   Palette-matched: #f2e9e4 base with muted dot texture
+   Hero background — warm cream + subtle dot grid
    (#22223b on #f2e9e4 = ~14:1 contrast ratio, WCAG AAA)
    ============================================================ */
 .hero-bg {
-  background-color: #f2e9e4;
+  background-color: var(--color-bg);
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='12' cy='12' r='1.1' fill='%23c9ada7' fill-opacity='0.45'/%3E%3C/svg%3E"),
-    linear-gradient(
-      160deg,
-      #f2e9e4 0%,
-      #ede2da 35%,
-      #e8d8ce 65%,
-      #e3d0c5 100%
-    );
+    linear-gradient(160deg, var(--color-bg) 0%, var(--p5-mid) 35%, var(--p5-deep) 65%, var(--color-bg-deep) 100%);
   background-size: 24px 24px, cover;
   background-position: 0 0, center;
 }
@@ -266,9 +229,9 @@ code {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--gray-200);
+  background-color: var(--color-border);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #9a8c98;
+  background-color: var(--color-border-strong);
 }

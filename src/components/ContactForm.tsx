@@ -36,9 +36,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
     return errs;
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name as keyof typeof errors]) {
@@ -49,13 +47,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs = validate();
-    if (Object.keys(errs).length > 0) {
-      setErrors(errs);
-      return;
-    }
-
+    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setStatus('submitting');
-    // Simulate API call — replace with Netlify Forms / Formspree endpoint
     await new Promise((res) => setTimeout(res, 1200));
     setStatus('success');
     setFormData({ name: '', email: '', message: '' });
@@ -63,12 +56,16 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
   const mailtoHref = `mailto:${contact.email.replace('@', '+business@')}`;
 
+  const linkStyle: React.CSSProperties = { color: 'var(--color-text-2)' };
+  const linkHover = (e: React.MouseEvent) => (e.currentTarget as HTMLElement).style.color = 'var(--color-text)';
+  const linkLeave = (e: React.MouseEvent) => (e.currentTarget as HTMLElement).style.color = 'var(--color-text-2)';
+
   return (
     <section
       id="contact"
       ref={sectionRef as React.RefObject<HTMLElement>}
       className="py-20 sm:py-28"
-      style={{ backgroundColor: '#ebe3dc' }}
+      style={{ backgroundColor: 'var(--color-bg-alt)' }}
       aria-labelledby="contact-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,146 +75,79 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <div className="text-center mb-12 reveal">
             <p className="section-subtitle mb-3">Contact</p>
             <h2 id="contact-heading" className="section-title">{heading}</h2>
-            <p className="mt-4 text-sm sm:text-base" style={{ color: '#9a8c98' }}>{subheading}</p>
+            <p className="mt-4 text-sm sm:text-base" style={{ color: 'var(--color-text-3)' }}>{subheading}</p>
 
-            {/* Quick contact links */}
             <div className="flex items-center justify-center gap-4 mt-6 flex-wrap">
-              <a
-                href={mailtoHref}
-                className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200"
-                style={{ color: '#4a4e69' }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#22223b'}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4a4e69'}
-              >
+              <a href={mailtoHref} className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200" style={linkStyle} onMouseEnter={linkHover} onMouseLeave={linkLeave}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <rect x="2" y="4" width="20" height="16" rx="2" />
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
                 {contact.email}
               </a>
-              <span className="hidden sm:block" style={{ color: '#c9ada7' }}>|</span>
-              <a
-                href={contact.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200"
-                style={{ color: '#4a4e69' }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#22223b'}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4a4e69'}
-              >
-                LinkedIn
-              </a>
-              <span className="hidden sm:block" style={{ color: '#c9ada7' }}>|</span>
-              <a
-                href={contact.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200"
-                style={{ color: '#4a4e69' }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#22223b'}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4a4e69'}
-              >
-                GitHub
-              </a>
+              <span className="hidden sm:block" style={{ color: 'var(--color-border)' }}>|</span>
+              <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200" style={linkStyle} onMouseEnter={linkHover} onMouseLeave={linkLeave}>LinkedIn</a>
+              <span className="hidden sm:block" style={{ color: 'var(--color-border)' }}>|</span>
+              <a href={contact.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200" style={linkStyle} onMouseEnter={linkHover} onMouseLeave={linkLeave}>GitHub</a>
             </div>
           </div>
 
           {/* Form card */}
-          <div className="reveal reveal-delay-1 bg-white rounded-2xl shadow-sm p-8 border" style={{ borderColor: '#c9ada7' }}>
+          <div className="reveal reveal-delay-1 bg-white rounded-2xl shadow-sm p-8 border" style={{ borderColor: 'var(--color-border)' }}>
             {status === 'success' ? (
               <div className="text-center py-8">
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2"
-                  style={{ backgroundColor: '#f2e9e4', borderColor: '#c9ada7' }}
+                  style={{ backgroundColor: 'var(--color-bg)', borderColor: 'var(--color-border)' }}
                   aria-hidden="true"
                 >
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4a4e69" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-2)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M20 6L9 17l-5-5" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold mb-2" style={{ color: '#22223b' }}>Message sent!</h3>
-                <p className="text-sm mb-6" style={{ color: '#9a8c98' }}>Thanks for reaching out. I'll get back to you soon.</p>
-                <button
-                  onClick={() => setStatus('idle')}
-                  className="btn-secondary text-sm px-5 py-2.5"
-                >
+                <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--color-text)' }}>Message sent!</h3>
+                <p className="text-sm mb-6" style={{ color: 'var(--color-text-3)' }}>Thanks for reaching out. I'll get back to you soon.</p>
+                <button onClick={() => setStatus('idle')} className="btn-secondary text-sm px-5 py-2.5">
                   Send another message
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate>
                 <div className="space-y-5">
-                  {/* Name */}
                   <div>
-                    <label htmlFor="contact-name" className="block text-sm font-medium mb-1.5" style={{ color: '#4a4e69' }}>
-                      Name
-                    </label>
+                    <label htmlFor="contact-name" className="block text-sm font-medium mb-1.5" style={{ color: 'var(--color-text-2)' }}>Name</label>
                     <input
-                      id="contact-name"
-                      name="name"
-                      type="text"
-                      autoComplete="name"
-                      placeholder="Your full name"
-                      value={formData.name}
-                      onChange={handleChange}
+                      id="contact-name" name="name" type="text" autoComplete="name"
+                      placeholder="Your full name" value={formData.name} onChange={handleChange}
                       className={`input-field ${errors.name ? 'border-red-300 focus:ring-red-400' : ''}`}
-                      aria-invalid={!!errors.name}
-                      aria-describedby={errors.name ? 'name-error' : undefined}
+                      aria-invalid={!!errors.name} aria-describedby={errors.name ? 'name-error' : undefined}
                     />
-                    {errors.name && (
-                      <p id="name-error" className="mt-1.5 text-xs text-red-500">{errors.name}</p>
-                    )}
+                    {errors.name && <p id="name-error" className="mt-1.5 text-xs text-red-500">{errors.name}</p>}
                   </div>
 
-                  {/* Email */}
                   <div>
-                    <label htmlFor="contact-email" className="block text-sm font-medium mb-1.5" style={{ color: '#4a4e69' }}>
-                      Email
-                    </label>
+                    <label htmlFor="contact-email" className="block text-sm font-medium mb-1.5" style={{ color: 'var(--color-text-2)' }}>Email</label>
                     <input
-                      id="contact-email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      placeholder="you@example.com"
-                      value={formData.email}
-                      onChange={handleChange}
+                      id="contact-email" name="email" type="email" autoComplete="email"
+                      placeholder="you@example.com" value={formData.email} onChange={handleChange}
                       className={`input-field ${errors.email ? 'border-red-300 focus:ring-red-400' : ''}`}
-                      aria-invalid={!!errors.email}
-                      aria-describedby={errors.email ? 'email-error' : undefined}
+                      aria-invalid={!!errors.email} aria-describedby={errors.email ? 'email-error' : undefined}
                     />
-                    {errors.email && (
-                      <p id="email-error" className="mt-1.5 text-xs text-red-500">{errors.email}</p>
-                    )}
+                    {errors.email && <p id="email-error" className="mt-1.5 text-xs text-red-500">{errors.email}</p>}
                   </div>
 
-                  {/* Message */}
                   <div>
-                    <label htmlFor="contact-message" className="block text-sm font-medium mb-1.5" style={{ color: '#4a4e69' }}>
-                      Message
-                    </label>
+                    <label htmlFor="contact-message" className="block text-sm font-medium mb-1.5" style={{ color: 'var(--color-text-2)' }}>Message</label>
                     <textarea
-                      id="contact-message"
-                      name="message"
-                      rows={5}
-                      placeholder="Tell me about your project or idea..."
-                      value={formData.message}
-                      onChange={handleChange}
+                      id="contact-message" name="message" rows={5}
+                      placeholder="Tell me about your project or idea..." value={formData.message} onChange={handleChange}
                       className={`input-field resize-none ${errors.message ? 'border-red-300 focus:ring-red-400' : ''}`}
-                      aria-invalid={!!errors.message}
-                      aria-describedby={errors.message ? 'message-error' : undefined}
+                      aria-invalid={!!errors.message} aria-describedby={errors.message ? 'message-error' : undefined}
                     />
-                    {errors.message && (
-                      <p id="message-error" className="mt-1.5 text-xs text-red-500">{errors.message}</p>
-                    )}
+                    {errors.message && <p id="message-error" className="mt-1.5 text-xs text-red-500">{errors.message}</p>}
                   </div>
 
-                  {/* Submit */}
-                  <button
-                    type="submit"
-                    disabled={status === 'submitting'}
-                    className="btn-primary btn-ripple w-full"
-                  >
+                  <button type="submit" disabled={status === 'submitting'} className="btn-primary btn-ripple w-full">
                     {status === 'submitting' ? (
                       <>
                         <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">

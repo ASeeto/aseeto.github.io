@@ -36,7 +36,6 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
         width: btnRect.width,
       });
     };
-
     updateIndicator();
     window.addEventListener('resize', updateIndicator);
     return () => window.removeEventListener('resize', updateIndicator);
@@ -46,13 +45,14 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
     <header
       className="sticky top-0 z-50 backdrop-blur-sm transition-all duration-300"
       style={{
-        backgroundColor: 'rgba(242,233,228,0.96)',
-        borderBottom: isScrolled ? '1px solid #c9ada7' : '1px solid transparent',
+        backgroundColor: 'color-mix(in srgb, var(--color-bg) 96%, transparent)',
+        borderBottom: isScrolled ? '1px solid var(--color-border)' : '1px solid transparent',
         boxShadow: isScrolled ? '0 1px 8px 0 rgba(34,34,59,0.07)' : 'none',
       }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+
           {/* Logo / Name */}
           <button
             onClick={() => onTabChange('about')}
@@ -60,14 +60,14 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
             aria-label="Go to homepage"
           >
             <span
-              className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold"
-              style={{ background: 'linear-gradient(135deg, #22223b, #4a4e69)' }}
+              className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold"
+              style={{ background: 'linear-gradient(135deg, var(--color-accent), var(--color-accent-hover))', color: 'var(--color-bg)' }}
             >
               AS
             </span>
             <span
               className="font-semibold text-sm sm:text-base tracking-tight transition-colors duration-200"
-              style={{ color: '#22223b' }}
+              style={{ color: 'var(--color-text)' }}
             >
               Alex Seeto
             </span>
@@ -89,15 +89,15 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
                 onClick={() => onTabChange(tab.id)}
                 className="relative px-4 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded-t-lg whitespace-nowrap"
                 style={{
-                  color: activeTab === tab.id ? '#22223b' : '#9a8c98',
+                  color: activeTab === tab.id ? 'var(--color-text)' : 'var(--color-text-3)',
                   marginBottom: 0,
                   paddingBottom: '1.1rem',
                 }}
                 onMouseEnter={e => {
-                  if (activeTab !== tab.id) (e.currentTarget as HTMLElement).style.color = '#4a4e69';
+                  if (activeTab !== tab.id) (e.currentTarget as HTMLElement).style.color = 'var(--color-text-2)';
                 }}
                 onMouseLeave={e => {
-                  if (activeTab !== tab.id) (e.currentTarget as HTMLElement).style.color = '#9a8c98';
+                  if (activeTab !== tab.id) (e.currentTarget as HTMLElement).style.color = 'var(--color-text-3)';
                 }}
               >
                 {tab.label}
@@ -107,10 +107,7 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
             {/* Sliding indicator */}
             <span
               className="tab-indicator"
-              style={{
-                left: indicatorStyle.left,
-                width: indicatorStyle.width,
-              }}
+              style={{ left: indicatorStyle.left, width: indicatorStyle.width }}
               aria-hidden="true"
             />
           </nav>

@@ -1,0 +1,34 @@
+/* ============================================================
+   Palette — single source of truth for all site colors.
+   To retheme the site, only edit this file.
+   ============================================================ */
+:root {
+  /* ── 5-tone vintage palette (darkest → lightest) ── */
+  --p1: #22223b;   /* dark navy  */
+  --p2: #4a4e69;   /* mid navy   */
+  --p3: #9a8c98;   /* muted mauve */
+  --p4: #c9ada7;   /* dusty rose */
+  --p5: #f2e9e4;   /* warm cream */
+
+  /* ── Derived tones (computed from palette, not user-facing) ── */
+  --p5-mid:  #ebe3dc;
+  --p5-deep: #e3d0c5;
+
+  /* ── Semantic color tokens (use these in components) ── */
+  --color-text:          var(--p1);
+  --color-text-2:        var(--p2);
+  --color-text-3:        var(--p3);
+
+  --color-border:        var(--p4);
+  --color-border-strong: var(--p3);
+
+  --color-bg:            var(--p5);
+  --color-bg-alt:        var(--p5-mid);
+  --color-bg-deep:       var(--p5-deep);
+
+  --color-accent:        var(--p1);
+  --color-accent-hover:  var(--p2);
+
+  /* ── Motion ── */
+  --transition-speed: 0.25s;
+}
