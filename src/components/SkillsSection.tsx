@@ -13,7 +13,7 @@ interface SkillsSectionProps {
 
 const SkillBackgroundIcon: React.FC<{ category: string }> = ({ category }) => {
   const props = {
-    width: 72, height: 72, fill: 'none',
+    width: 56, height: 56, fill: 'none',
     stroke: 'var(--color-text)', strokeWidth: 2,
     strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const,
   };
@@ -119,7 +119,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => {
             >
               {/* Background icon watermark */}
               <div
-                className="absolute top-2 right-2 pointer-events-none select-none"
+                className="absolute bottom-2 right-2 pointer-events-none select-none"
                 style={{ opacity: 0.07 }}
                 aria-hidden="true"
               >
