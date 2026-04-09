@@ -11,7 +11,6 @@ const WorkWithMe: React.FC = () => {
   const integrationsRef = useScrollAnimation();
 
   useEffect(() => {
-    // Scroll to top when tab switches
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     const t = setTimeout(() => setHeroVisible(true), 80);
     return () => clearTimeout(t);
@@ -33,11 +32,12 @@ const WorkWithMe: React.FC = () => {
               <p className="section-subtitle mb-4">{workData.intro.subheading}</p>
               <h1
                 id="wwm-heading"
-                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-none mb-6"
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none mb-6"
+                style={{ color: '#22223b' }}
               >
                 {workData.intro.heading}
               </h1>
-              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl">
+              <p className="text-lg sm:text-xl leading-relaxed max-w-2xl" style={{ color: '#4a4e69' }}>
                 {workData.intro.body}
               </p>
             </div>
@@ -48,7 +48,8 @@ const WorkWithMe: React.FC = () => {
       {/* ─── Services ────────────────────────────────────────────────── */}
       <section
         ref={servicesRef as React.RefObject<HTMLElement>}
-        className="py-20 sm:py-28 bg-white"
+        className="py-20 sm:py-28"
+        style={{ backgroundColor: '#f2e9e4' }}
         aria-labelledby="services-heading"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,13 +66,13 @@ const WorkWithMe: React.FC = () => {
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center text-lg mb-4"
-                  style={{ background: 'linear-gradient(135deg, #EFF6FF, #DBEAFE)' }}
+                  style={{ background: 'linear-gradient(135deg, #f2e9e4, #ebe3dc)' }}
                   aria-hidden="true"
                 >
                   {service.icon}
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2 text-sm">{service.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{service.description}</p>
+                <h3 className="font-semibold mb-2 text-sm" style={{ color: '#22223b' }}>{service.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#9a8c98' }}>{service.description}</p>
               </div>
             ))}
           </div>
@@ -87,7 +88,8 @@ const WorkWithMe: React.FC = () => {
       {/* ─── Integrations & Back-End ────────────────────────────────── */}
       <section
         ref={integrationsRef as React.RefObject<HTMLElement>}
-        className="py-20 sm:py-28 bg-gray-50"
+        className="py-20 sm:py-28"
+        style={{ backgroundColor: '#ebe3dc' }}
         aria-labelledby="integrations-heading"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,7 +98,7 @@ const WorkWithMe: React.FC = () => {
             <h2 id="integrations-heading" className="section-title">
               Integrations &amp; Tools
             </h2>
-            <p className="mt-4 text-gray-500 max-w-xl mx-auto text-sm sm:text-base">
+            <p className="mt-4 max-w-xl mx-auto text-sm sm:text-base" style={{ color: '#9a8c98' }}>
               Every project is paired with the right tools for your goals — from forms and
               payments to CMS, analytics, and deployment.
             </p>
@@ -106,9 +108,12 @@ const WorkWithMe: React.FC = () => {
             {workData.integrations.map((group, idx) => (
               <div
                 key={group.category}
-                className={`reveal reveal-delay-${Math.min(idx + 1, 6)} bg-white rounded-2xl p-6 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all duration-300`}
+                className={`reveal reveal-delay-${Math.min(idx + 1, 6)} bg-white rounded-2xl p-6 border transition-all duration-300`}
+                style={{ borderColor: '#c9ada7' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = '#9a8c98'; (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 16px 0 rgba(34,34,59,0.07)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = '#c9ada7'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}
               >
-                <h3 className="font-semibold text-gray-900 text-sm mb-3 pb-2 border-b border-gray-100">
+                <h3 className="font-semibold text-sm mb-3 pb-2 border-b" style={{ color: '#22223b', borderColor: '#c9ada7' }}>
                   {group.category}
                 </h3>
                 <div className="flex flex-wrap gap-2">

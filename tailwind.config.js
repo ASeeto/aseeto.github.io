@@ -10,10 +10,12 @@ module.exports = {
       },
       colors: {
         accent: {
-          DEFAULT: '#3B82F6',
-          dark: '#2563EB',
-          light: '#BFDBFE',
-          subtle: '#EFF6FF',
+          DEFAULT: '#22223b',
+          dark:    '#4a4e69',
+          mid:     '#9a8c98',
+          light:   '#c9ada7',
+          subtle:  '#f2e9e4',
+          muted:   '#ebe3dc',
         },
       },
       animation: {

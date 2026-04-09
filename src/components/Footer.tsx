@@ -31,20 +31,21 @@ const EmailIcon = () => (
 
 const Footer: React.FC<FooterProps> = ({ contact }) => {
   const currentYear = new Date().getFullYear();
+  const mailtoHref = `mailto:${contact.email.replace('@', '+business@')}`;
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-100 mt-auto">
+    <footer className="border-t mt-auto" style={{ backgroundColor: '#f2e9e4', borderColor: '#c9ada7' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Left: Branding */}
           <div className="flex items-center gap-2">
             <span
               className="w-6 h-6 rounded-md flex items-center justify-center text-white text-xs font-bold"
-              style={{ background: 'linear-gradient(135deg, #3B82F6, #6366F1)' }}
+              style={{ background: 'linear-gradient(135deg, #22223b, #4a4e69)' }}
             >
               AS
             </span>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm" style={{ color: '#9a8c98' }}>
               &copy; {currentYear} Alex Seeto. All rights reserved.
             </p>
           </div>
@@ -56,7 +57,10 @@ const Footer: React.FC<FooterProps> = ({ contact }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub profile"
-              className="p-2 rounded-lg text-gray-400 hover:text-gray-900 hover:bg-gray-200 transition-colors duration-200"
+              className="p-2 rounded-lg transition-colors duration-200"
+              style={{ color: '#9a8c98' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#22223b'; (e.currentTarget as HTMLElement).style.backgroundColor = '#ebe3dc'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#9a8c98'; (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent'; }}
             >
               <GitHubIcon />
             </a>
@@ -65,14 +69,20 @@ const Footer: React.FC<FooterProps> = ({ contact }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn profile"
-              className="p-2 rounded-lg text-gray-400 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200"
+              className="p-2 rounded-lg transition-colors duration-200"
+              style={{ color: '#9a8c98' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#4a4e69'; (e.currentTarget as HTMLElement).style.backgroundColor = '#ebe3dc'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#9a8c98'; (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent'; }}
             >
               <LinkedInIcon />
             </a>
             <a
-              href={`mailto:${contact.email}`}
+              href={mailtoHref}
               aria-label="Send email"
-              className="p-2 rounded-lg text-gray-400 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200"
+              className="p-2 rounded-lg transition-colors duration-200"
+              style={{ color: '#9a8c98' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#4a4e69'; (e.currentTarget as HTMLElement).style.backgroundColor = '#ebe3dc'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#9a8c98'; (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent'; }}
             >
               <EmailIcon />
             </a>

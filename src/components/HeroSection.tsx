@@ -15,11 +15,16 @@ interface HeroSectionProps {
   onWorkWithMeClick: () => void;
 }
 
+const AirplaneIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2 1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5L21 16z" />
+  </svg>
+);
+
 const HeroSection: React.FC<HeroSectionProps> = ({ hero, onWorkWithMeClick }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Small delay so the animation fires after mount
     const t = setTimeout(() => setVisible(true), 80);
     return () => clearTimeout(t);
   }, []);
@@ -48,48 +53,56 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hero, onWorkWithMeClick }) =>
               {/* Name */}
               <h1
                 id="hero-name"
-                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-none mb-3"
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none mb-3"
+                style={{ color: '#22223b' }}
               >
                 {hero.name}
               </h1>
 
-              {/* Title */}
-              <div className="mb-2">
-                <span className="text-lg sm:text-xl font-semibold text-blue-600">
+              {/* Title + subtitle */}
+              <div className="mb-1">
+                <span className="text-lg sm:text-xl font-semibold" style={{ color: '#4a4e69' }}>
                   {hero.title}
                 </span>
               </div>
-              <div className="mb-6">
-                <span className="text-sm sm:text-base font-medium text-gray-500">
+              <div className="mb-3">
+                <span className="text-sm sm:text-base font-medium" style={{ color: '#9a8c98' }}>
                   {hero.subtitle}
                 </span>
               </div>
 
+              {/* Travel location strip */}
+              <div className="flex items-center gap-1.5 mb-5 text-sm" style={{ color: '#9a8c98' }}>
+                <AirplaneIcon />
+                <span>MA</span>
+                <span style={{ color: '#c9ada7' }}>→</span>
+                <span>NY</span>
+                <span style={{ color: '#c9ada7' }}>→</span>
+                <span>VA</span>
+              </div>
+
               {/* Tagline */}
-              <p className="text-lg sm:text-xl text-gray-600 italic font-light leading-relaxed mb-6 border-l-2 border-blue-300 pl-4">
+              <p
+                className="text-lg sm:text-xl italic font-light leading-relaxed mb-6 border-l-2 pl-4"
+                style={{ color: '#4a4e69', borderColor: '#c9ada7' }}
+              >
                 "{hero.tagline}"
               </p>
 
               {/* Bio */}
-              <p className="text-gray-600 leading-relaxed text-base sm:text-lg mb-10 max-w-xl">
+              <p className="leading-relaxed text-base sm:text-lg mb-10 max-w-xl" style={{ color: '#4a4e69' }}>
                 {hero.bio}
               </p>
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-3">
-                <button
-                  onClick={scrollToSkills}
-                  className="btn-primary btn-ripple"
-                >
+                <button onClick={scrollToSkills} className="btn-primary btn-ripple">
                   View My Skills
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M12 5v14M5 12l7 7 7-7" />
                   </svg>
                 </button>
-                <button
-                  onClick={onWorkWithMeClick}
-                  className="btn-secondary btn-ripple"
-                >
+                <button onClick={onWorkWithMeClick} className="btn-secondary btn-ripple">
                   Work With Me
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M5 12h14M12 5l7 7-7 7" />
@@ -110,8 +123,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hero, onWorkWithMeClick }) =>
           >
             <div className="relative">
               {/* Decorative rings */}
-              <div className="absolute inset-0 rounded-full border-2 border-blue-200 scale-110 opacity-60" aria-hidden="true" />
-              <div className="absolute inset-0 rounded-full border border-blue-100 scale-125 opacity-40" aria-hidden="true" />
+              <div className="absolute inset-0 rounded-full border-2 scale-110 opacity-50" style={{ borderColor: '#c9ada7' }} aria-hidden="true" />
+              <div className="absolute inset-0 rounded-full border scale-125 opacity-30" style={{ borderColor: '#c9ada7' }} aria-hidden="true" />
 
               {/* Avatar */}
               <div
@@ -120,11 +133,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hero, onWorkWithMeClick }) =>
                 aria-label={`${hero.name} — avatar`}
               >
                 {hero.avatarUrl ? (
-                  <img
-                    src={hero.avatarUrl}
-                    alt={hero.name}
-                    className="w-full h-full rounded-full object-cover"
-                  />
+                  <img src={hero.avatarUrl} alt={hero.name} className="w-full h-full rounded-full object-cover" />
                 ) : (
                   <span className="text-white text-5xl sm:text-6xl font-bold select-none">
                     {hero.avatarInitials}
@@ -133,9 +142,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hero, onWorkWithMeClick }) =>
               </div>
 
               {/* Status badge */}
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 z-20 bg-white border border-gray-100 shadow-md rounded-full px-4 py-1.5 flex items-center gap-2 whitespace-nowrap">
+              <div
+                className="absolute -bottom-2 left-1/2 -translate-x-1/2 z-20 shadow-md rounded-full px-4 py-1.5 flex items-center gap-2 whitespace-nowrap border"
+                style={{ background: '#f2e9e4', borderColor: '#c9ada7' }}
+              >
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" aria-hidden="true" />
-                <span className="text-xs font-medium text-gray-700">Available for projects</span>
+                <span className="text-xs font-medium" style={{ color: '#4a4e69' }}>Available for projects</span>
               </div>
             </div>
           </div>

@@ -61,11 +61,14 @@ const ContactForm: React.FC<ContactFormProps> = ({
     setFormData({ name: '', email: '', message: '' });
   };
 
+  const mailtoHref = `mailto:${contact.email.replace('@', '+business@')}`;
+
   return (
     <section
       id="contact"
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className="py-20 sm:py-28 bg-gray-50"
+      className="py-20 sm:py-28"
+      style={{ backgroundColor: '#ebe3dc' }}
       aria-labelledby="contact-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,13 +78,16 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <div className="text-center mb-12 reveal">
             <p className="section-subtitle mb-3">Contact</p>
             <h2 id="contact-heading" className="section-title">{heading}</h2>
-            <p className="mt-4 text-gray-500 text-sm sm:text-base">{subheading}</p>
+            <p className="mt-4 text-sm sm:text-base" style={{ color: '#9a8c98' }}>{subheading}</p>
 
             {/* Quick contact links */}
             <div className="flex items-center justify-center gap-4 mt-6 flex-wrap">
               <a
-                href={`mailto:${contact.email}`}
-                className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
+                href={mailtoHref}
+                className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200"
+                style={{ color: '#4a4e69' }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#22223b'}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4a4e69'}
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -89,21 +95,27 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 </svg>
                 {contact.email}
               </a>
-              <span className="text-gray-300 hidden sm:block">|</span>
+              <span className="hidden sm:block" style={{ color: '#c9ada7' }}>|</span>
               <a
                 href={contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
+                className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200"
+                style={{ color: '#4a4e69' }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#22223b'}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4a4e69'}
               >
                 LinkedIn
               </a>
-              <span className="text-gray-300 hidden sm:block">|</span>
+              <span className="hidden sm:block" style={{ color: '#c9ada7' }}>|</span>
               <a
                 href={contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
+                className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200"
+                style={{ color: '#4a4e69' }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#22223b'}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4a4e69'}
               >
                 GitHub
               </a>
@@ -111,19 +123,20 @@ const ContactForm: React.FC<ContactFormProps> = ({
           </div>
 
           {/* Form card */}
-          <div className="reveal reveal-delay-1 bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
+          <div className="reveal reveal-delay-1 bg-white rounded-2xl shadow-sm p-8 border" style={{ borderColor: '#c9ada7' }}>
             {status === 'success' ? (
               <div className="text-center py-8">
                 <div
-                  className="w-16 h-16 rounded-full bg-green-50 border-2 border-green-200 flex items-center justify-center mx-auto mb-4"
+                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2"
+                  style={{ backgroundColor: '#f2e9e4', borderColor: '#c9ada7' }}
                   aria-hidden="true"
                 >
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4a4e69" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M20 6L9 17l-5-5" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Message sent!</h3>
-                <p className="text-gray-500 text-sm mb-6">Thanks for reaching out. I'll get back to you soon.</p>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: '#22223b' }}>Message sent!</h3>
+                <p className="text-sm mb-6" style={{ color: '#9a8c98' }}>Thanks for reaching out. I'll get back to you soon.</p>
                 <button
                   onClick={() => setStatus('idle')}
                   className="btn-secondary text-sm px-5 py-2.5"
@@ -136,7 +149,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 <div className="space-y-5">
                   {/* Name */}
                   <div>
-                    <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-1.5">
+                    <label htmlFor="contact-name" className="block text-sm font-medium mb-1.5" style={{ color: '#4a4e69' }}>
                       Name
                     </label>
                     <input
@@ -158,7 +171,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
                   {/* Email */}
                   <div>
-                    <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 mb-1.5">
+                    <label htmlFor="contact-email" className="block text-sm font-medium mb-1.5" style={{ color: '#4a4e69' }}>
                       Email
                     </label>
                     <input
@@ -180,7 +193,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700 mb-1.5">
+                    <label htmlFor="contact-message" className="block text-sm font-medium mb-1.5" style={{ color: '#4a4e69' }}>
                       Message
                     </label>
                     <textarea
