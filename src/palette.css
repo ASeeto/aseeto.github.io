@@ -8,11 +8,11 @@
   --p2: #4a4e69;   /* mid navy   */
   --p3: #9a8c98;   /* muted mauve */
   --p4: #c9ada7;   /* dusty rose */
-  --p5: #f2e9e4;   /* warm cream */
+  --p5: #f4ede0;   /* warm amber cream */
 
-  /* ── Derived tones (computed from palette, not user-facing) ── */
-  --p5-mid:  #ebe3dc;
-  --p5-deep: #e3d0c5;
+  /* ── Derived tones (warmer amber, complement walnut wood imagery) ── */
+  --p5-mid:  #e8d5be;
+  --p5-deep: #d9c2a5;
 
   /* ── Semantic color tokens (use these in components) ── */
   --color-text:          var(--p1);
