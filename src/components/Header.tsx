@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
               className="font-semibold text-sm sm:text-base tracking-tight transition-colors duration-200"
               style={{ color: 'var(--color-text)' }}
             >
-              Alex Seeto
+              Alex
             </span>
           </button>
 

@@ -60,7 +60,7 @@ const Footer: React.FC<FooterProps> = ({ contact }) => {
               AS
             </span>
             <p className="text-sm" style={{ color: 'var(--color-text-3)' }}>
-              &copy; {currentYear} Alex Seeto. All rights reserved.
+              &copy; {currentYear} All rights reserved.
             </p>
           </div>
 
