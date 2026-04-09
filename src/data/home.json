@@ -12,7 +12,7 @@
     {
       "category": "Front-End",
       "icon": "⬡",
-      "items": ["HTML", "CSS", "Tailwind CSS", "JavaScript", "React", "Responsive Design", "Accessibility"]
+      "items": ["HTML", "CSS", "JavaScript", "React", "Responsive Design", "Accessibility"]
     },
     {
       "category": "Back-End & Systems",
@@ -36,7 +36,7 @@
     }
   ],
   "contact": {
-    "email": "alex@example.com",
+    "email": "seeto.alexander@gmail.com",
     "linkedin": "https://linkedin.com/in/alexseeto",
     "github": "https://github.com/aseeto"
   }
