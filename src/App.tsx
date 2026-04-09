@@ -4,6 +4,7 @@ import Header, { TabId } from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import WorkWithMe from './pages/WorkWithMe';
+import BackToTop from './components/BackToTop';
 import homeData from './data/home.json';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       </main>
 
       <Footer contact={homeData.contact} />
+      <BackToTop />
     </div>
   );
 }

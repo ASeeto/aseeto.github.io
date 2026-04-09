@@ -2,70 +2,70 @@
   "intro": {
     "heading": "Let's Build Something Together",
     "subheading": "Work With Me",
-    "body": "I help small businesses and startups bring their web ideas to life. From clean, minimal brochure sites to interactive landing pages, I focus on functional, mobile-responsive, and visually compelling web experiences that elevate your brand and engage your audience."
+    "body": "I help small businesses and independent professionals get online quickly with sites that look professional from day one. No bloated agencies, no unnecessary complexity — just clean design, solid code, and a site you're proud to share."
   },
   "services": [
     {
       "title": "Custom Website Design",
-      "description": "Minimalist, professional, brand-aligned layouts crafted to reflect your unique identity and convert visitors into customers.",
+      "description": "Your first impression matters. I design minimal, professional layouts that reflect your brand and turn visitors into enquiries.",
       "icon": "✦"
     },
     {
       "title": "Responsive & Accessible",
-      "description": "Sites that work seamlessly across all devices — from desktop to mobile — and are inclusive for all users.",
+      "description": "Your site works perfectly on any device — from desktop to phone. No pinching, no broken layouts, no excuses.",
       "icon": "◈"
     },
     {
       "title": "Lead Capture & Forms",
-      "description": "Contact forms, newsletter sign-ups, and event registrations that connect you to your audience.",
+      "description": "Contact forms, newsletter sign-ups, and booking flows that connect you directly to people who want what you offer.",
       "icon": "◉"
     },
     {
       "title": "E-Commerce & Payments",
-      "description": "Small storefronts, online bookings, and simple checkout flows integrated with Stripe, PayPal, or Shopify.",
+      "description": "Sell products or services online without the complexity. Stripe, PayPal, or Shopify — I handle the integration.",
       "icon": "◆"
     },
     {
       "title": "Content Management",
-      "description": "Easy-to-update sites via headless CMS (Sanity, Contentful) so you stay in control of your content.",
+      "description": "Update your own site without touching a line of code. I'll set up a CMS so your content stays fresh.",
       "icon": "◇"
     },
     {
       "title": "Analytics Ready",
-      "description": "Google Analytics setup, basic conversion tracking, and insights to understand how your site performs.",
+      "description": "Know who's visiting, what they're looking at, and where they drop off — so you can make smarter decisions.",
       "icon": "◎"
     }
   ],
   "portfolio": [
     {
-      "title": "Artisanal Coffee Shop",
-      "description": "A mobile-friendly, scroll-based landing page showcasing a local coffee brand — rich imagery, clean layout, and a warm, inviting feel.",
+      "title": "Brew & Bloom Coffee",
+      "description": "A mobile-friendly, scroll-based landing page for a local coffee brand — warm tones, clean menu layout, and a community-forward feel.",
       "tags": ["Landing Page", "Mobile-First", "Scroll Animation"],
-      "imageUrl": "/images/coffee-shop.svg",
+      "imageUrl": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80&fit=crop",
       "gradient": "from-amber-400 to-orange-500",
       "linkUrl": "/examples/coffee-shop/"
     },
     {
-      "title": "Boutique Consulting Firm",
-      "description": "A multi-page professional site with interactive hover effects and a polished, credibility-focused design for a boutique B2B firm.",
+      "title": "Meridian Consulting",
+      "description": "A multi-page professional site with a dark hero, interactive hover effects, and a credibility-focused design for a boutique B2B firm.",
       "tags": ["Multi-Page", "Hover Effects", "Professional"],
-      "imageUrl": "/images/consulting-firm.svg",
+      "imageUrl": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&fit=crop",
       "gradient": "from-slate-600 to-slate-800",
       "linkUrl": "/examples/consulting-firm/"
     },
     {
-      "title": "Fictional Startup Product Page",
-      "description": "A storytelling-focused product page with bold CTAs, animated sections, and a modern startup aesthetic.",
-      "tags": ["Startup", "CTA Sections", "Storytelling"],
-      "imageUrl": "/images/startup-product.svg",
+      "title": "NovaSend — SaaS Product",
+      "description": "A storytelling-focused product page with bold CTAs, animated feature sections, and a modern SaaS aesthetic built to convert.",
+      "tags": ["SaaS", "CTA Sections", "Storytelling"],
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop",
       "gradient": "from-blue-500 to-indigo-600",
       "linkUrl": "/examples/startup-product/"
     },
     {
       "title": "Personal Portfolio Template",
-      "description": "A clean, mobile-first portfolio template demonstrating strong design sensibility, usability, and visual hierarchy.",
+      "description": "A clean, mobile-first portfolio template with strong visual hierarchy, smooth scroll animations, and easy-to-customise content.",
       "tags": ["Portfolio", "Clean Design", "Mobile-First"],
-      "imageUrl": "/images/portfolio-template.svg",
+      "imageUrl": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80&fit=crop",
       "gradient": "from-violet-500 to-purple-600",
       "linkUrl": "/examples/portfolio-template/"
     }
@@ -97,9 +97,9 @@
     }
   ],
   "cta": {
-    "heading": "Ready to Start Your Project?",
-    "body": "Interested in working together? Let's discuss your project — from concept to launch, I'll partner with you every step of the way.",
-    "buttonText": "Get In Touch",
-    "email": "alex@example.com"
+    "heading": "Let's talk about your project.",
+    "body": "Most projects start with a free 30-minute conversation. Tell me what you need — I'll tell you what's realistic, what it'll cost, and how long it'll take. No pressure.",
+    "buttonText": "Schedule a Free Call →",
+    "email": "seeto.alexander@gmail.com"
   }
 }
