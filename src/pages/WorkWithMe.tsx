@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PortfolioGrid from '../components/PortfolioGrid';
 import ContactForm from '../components/ContactForm';
+import ProcessSection from '../components/ProcessSection';
+import WhyWorkWithMe from '../components/WhyWorkWithMe';
+import FAQSection from '../components/FAQSection';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import workData from '../data/work_with_me.json';
 import homeData from '../data/home.json';
@@ -29,7 +32,7 @@ const WorkWithMe: React.FC = () => {
               <p className="section-subtitle mb-4">{workData.intro.subheading}</p>
               <h1
                 id="wwm-heading"
-                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none mb-6"
+                className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none mb-6"
                 style={{ color: 'var(--color-text)' }}
               >
                 {workData.intro.heading}
@@ -79,6 +82,15 @@ const WorkWithMe: React.FC = () => {
       {/* ─── Portfolio Grid ──────────────────────────────────────────── */}
       <PortfolioGrid portfolio={workData.portfolio} sectionLabel="Example Projects" />
 
+      {/* ─── Process ─────────────────────────────────────────────────── */}
+      <ProcessSection />
+
+      {/* ─── Why Work With Me ────────────────────────────────────────── */}
+      <WhyWorkWithMe />
+
+      {/* ─── FAQ ─────────────────────────────────────────────────────── */}
+      <FAQSection />
+
       {/* ─── Integrations & Back-End ────────────────────────────────── */}
       <section
         ref={integrationsRef as React.RefObject<HTMLElement>}
@@ -125,8 +137,30 @@ const WorkWithMe: React.FC = () => {
         </div>
       </section>
 
+      {/* ─── Schedule CTA ────────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20" style={{ backgroundColor: 'var(--color-bg-alt)' }}>
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+          <p className="section-subtitle mb-3">Ready to Start?</p>
+          <h2
+            className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4"
+            style={{ color: 'var(--color-text)' }}
+          >
+            {workData.cta.heading}
+          </h2>
+          <p className="text-base sm:text-lg leading-relaxed mb-8" style={{ color: 'var(--color-text-2)' }}>
+            {workData.cta.body}
+          </p>
+          <a
+            href={`mailto:${workData.cta.email}`}
+            className="btn-primary inline-flex items-center gap-2 px-8 py-4 text-base"
+          >
+            {workData.cta.buttonText}
+          </a>
+        </div>
+      </section>
+
       {/* ─── CTA + Contact ──────────────────────────────────────────── */}
-      <ContactForm contact={homeData.contact} heading={workData.cta.heading} subheading={workData.cta.body} />
+      <ContactForm contact={homeData.contact} heading="Or Drop Me a Message" subheading="Prefer to write? Fill in the form and I'll get back to you within a day." />
     </div>
   );
 };

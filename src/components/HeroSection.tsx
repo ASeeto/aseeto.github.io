@@ -296,7 +296,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hero, onWorkWithMeClick }) =>
                 {hero.bio}
               </p>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 mb-10">
                 <button onClick={scrollToSkills} className="btn-primary btn-ripple">
                   View My Skills
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -309,6 +309,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hero, onWorkWithMeClick }) =>
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </button>
+              </div>
+
+              {/* Marquee tech strip */}
+              <div className="marquee-track overflow-hidden" aria-hidden="true">
+                <div className="marquee-inner">
+                  {['React', 'TypeScript', 'Node.js', 'Figma', 'Stripe', 'Tailwind', 'Sanity', 'GitHub Actions',
+                    'React', 'TypeScript', 'Node.js', 'Figma', 'Stripe', 'Tailwind', 'Sanity', 'GitHub Actions'].map((tech, i) => (
+                    <span key={i} className="marquee-item">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

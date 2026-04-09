@@ -215,6 +215,7 @@ code {
 .hero-bg {
   background-color: var(--color-bg);
   background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
     linear-gradient(
       148deg,
       var(--color-bg)       0%,
@@ -223,6 +224,36 @@ code {
       var(--p5-deep)        82%,
       var(--color-bg-deep)  100%
     );
+}
+
+/* ============================================================
+   Marquee tech strip
+   ============================================================ */
+.marquee-track {
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+.marquee-inner {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+.marquee-item {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0 1.5rem;
+  color: var(--color-text-3);
+  white-space: nowrap;
+  border-right: 1px solid var(--color-border);
+}
+.marquee-item:last-child { border-right: none; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* ============================================================
