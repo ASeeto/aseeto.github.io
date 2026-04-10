@@ -54,6 +54,25 @@ code {
 .reveal-delay-6 { transition-delay: 0.48s; }
 
 /* ============================================================
+   Floating Call Button Bounce Animation
+   ============================================================ */
+@keyframes periodic-bounce {
+  0%, 78%, 100% { transform: translateY(0); }
+  82%  { transform: translateY(-8px); }
+  88%  { transform: translateY(-3px); }
+  93%  { transform: translateY(-6px); }
+  97%  { transform: translateY(-1px); }
+}
+
+.floating-call-btn {
+  animation: periodic-bounce 3.5s ease-in-out infinite;
+}
+
+.floating-call-btn:hover {
+  animation-play-state: paused;
+}
+
+/* ============================================================
    Tab Indicator (Sliding Underline)
    ============================================================ */
 .tab-indicator {

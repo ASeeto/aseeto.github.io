@@ -151,7 +151,7 @@ const WorkWithMe: React.FC = () => {
             {workData.cta.body}
           </p>
           <a
-            href={`mailto:${workData.cta.email}`}
+            href={`mailto:${workData.cta.email.replace('@', '+business@')}`}
             className="btn-primary inline-flex items-center gap-2 px-8 py-4 text-base"
           >
             {workData.cta.buttonText}

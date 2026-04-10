@@ -78,12 +78,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <p className="mt-4 text-sm sm:text-base" style={{ color: 'var(--color-text-3)' }}>{subheading}</p>
 
             <div className="flex items-center justify-center gap-4 mt-6 flex-wrap">
-              <a href={mailtoHref} className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200" style={linkStyle} onMouseEnter={linkHover} onMouseLeave={linkLeave}>
+              <a href={mailtoHref} aria-label="Send email" className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200" style={linkStyle} onMouseEnter={linkHover} onMouseLeave={linkLeave}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <rect x="2" y="4" width="20" height="16" rx="2" />
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
-                {contact.email}
+                Email Me
               </a>
               <span className="hidden sm:block" style={{ color: 'var(--color-border)' }}>|</span>
               <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200" style={linkStyle} onMouseEnter={linkHover} onMouseLeave={linkLeave}>LinkedIn</a>
