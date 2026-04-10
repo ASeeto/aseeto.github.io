@@ -1,0 +1,24 @@
+image: node:20-alpine
+
+stages:
+  - deploy
+
+pages:
+  stage: deploy
+  script:
+    - npm ci
+    - npm run build:gitlab
+  artifacts:
+    publish: "."
+    paths:
+      - index.html
+      - asset-manifest.json
+      - static/
+      - manifest.json
+      - robots.txt
+      - favicon.ico
+      - favicon.svg
+      - images/
+      - examples/
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"

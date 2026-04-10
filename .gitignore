@@ -11,6 +11,11 @@
 # production
 /build
 
+# root-level build artifacts (from BUILD_PATH=. / GitLab CI)
+/index.html
+/asset-manifest.json
+/static/
+
 # misc
 .DS_Store
 .env.local
