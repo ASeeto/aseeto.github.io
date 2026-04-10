@@ -22,6 +22,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:gitlab": "BUILD_PATH=. react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
