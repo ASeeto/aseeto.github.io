@@ -1,0 +1,105 @@
+{
+  "intro": {
+    "heading": "Let's Build Something Together",
+    "subheading": "Work With Me",
+    "body": "I help small businesses and independent professionals get online quickly with sites that look professional from day one. No bloated agencies, no unnecessary complexity — just clean design, solid code, and a site you're proud to share."
+  },
+  "services": [
+    {
+      "title": "Custom Website Design",
+      "description": "Your first impression matters. I design minimal, professional layouts that reflect your brand and turn visitors into enquiries.",
+      "icon": "✦"
+    },
+    {
+      "title": "Responsive & Accessible",
+      "description": "Your site works perfectly on any device — from desktop to phone. No pinching, no broken layouts, no excuses.",
+      "icon": "◈"
+    },
+    {
+      "title": "Lead Capture & Forms",
+      "description": "Contact forms, newsletter sign-ups, and booking flows that connect you directly to people who want what you offer.",
+      "icon": "◉"
+    },
+    {
+      "title": "E-Commerce & Payments",
+      "description": "Sell products or services online without the complexity. Stripe, PayPal, or Shopify — I handle the integration.",
+      "icon": "◆"
+    },
+    {
+      "title": "Content Management",
+      "description": "Update your own site without touching a line of code. I'll set up a CMS so your content stays fresh.",
+      "icon": "◇"
+    },
+    {
+      "title": "Analytics Ready",
+      "description": "Know who's visiting, what they're looking at, and where they drop off — so you can make smarter decisions.",
+      "icon": "◎"
+    }
+  ],
+  "portfolio": [
+    {
+      "title": "Brew & Bloom Coffee",
+      "description": "A mobile-friendly, scroll-based landing page for a local coffee brand — warm tones, clean menu layout, and a community-forward feel.",
+      "tags": ["Landing Page", "Mobile-First", "Scroll Animation"],
+      "imageUrl": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80&fit=crop",
+      "gradient": "from-amber-400 to-orange-500",
+      "linkUrl": "/examples/coffee-shop/"
+    },
+    {
+      "title": "Meridian Consulting",
+      "description": "A multi-page professional site with a dark hero, interactive hover effects, and a credibility-focused design for a boutique B2B firm.",
+      "tags": ["Multi-Page", "Hover Effects", "Professional"],
+      "imageUrl": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&fit=crop",
+      "gradient": "from-slate-600 to-slate-800",
+      "linkUrl": "/examples/consulting-firm/"
+    },
+    {
+      "title": "NovaSend — SaaS Product",
+      "description": "A storytelling-focused product page with bold CTAs, animated feature sections, and a modern SaaS aesthetic built to convert.",
+      "tags": ["SaaS", "CTA Sections", "Storytelling"],
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop",
+      "gradient": "from-blue-500 to-indigo-600",
+      "linkUrl": "/examples/startup-product/"
+    },
+    {
+      "title": "Personal Portfolio Template",
+      "description": "A clean, mobile-first portfolio template with strong visual hierarchy, smooth scroll animations, and easy-to-customise content.",
+      "tags": ["Portfolio", "Clean Design", "Mobile-First"],
+      "imageUrl": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80&fit=crop",
+      "gradient": "from-violet-500 to-purple-600",
+      "linkUrl": "/examples/portfolio-template/"
+    }
+  ],
+  "integrations": [
+    {
+      "category": "Forms & Lead Capture",
+      "items": ["Netlify Forms", "Formspree", "Mailchimp", "ConvertKit"]
+    },
+    {
+      "category": "Payments & E-Commerce",
+      "items": ["Stripe", "PayPal", "Shopify Lite", "Snipcart"]
+    },
+    {
+      "category": "Content & CMS",
+      "items": ["Sanity", "Contentful", "Strapi", "Notion as CMS"]
+    },
+    {
+      "category": "Analytics & Marketing",
+      "items": ["Google Analytics 4", "Google Tag Manager", "Hotjar", "Plausible"]
+    },
+    {
+      "category": "Social & Media",
+      "items": ["Instagram Embed", "YouTube / Vimeo", "Twitter / X Feed"]
+    },
+    {
+      "category": "Deployment & Hosting",
+      "items": ["Netlify", "Vercel", "GitHub Pages", "GitHub Actions"]
+    }
+  ],
+  "cta": {
+    "heading": "Let's talk about your project.",
+    "body": "Most projects start with a free 30-minute conversation. Tell me what you need — I'll tell you what's realistic, what it'll cost, and how long it'll take. No pressure.",
+    "buttonText": "Schedule a Free Call →",
+    "email": "seeto.alexander@gmail.com"
+  }
+}

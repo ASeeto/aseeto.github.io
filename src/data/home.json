@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "name": "Hi, I'm Alex",
+    "title": "Web Designer & Developer",
+    "subtitle": "Assistant Director of Software Engineering",
+    "tagline": "Building things on the web that are fast, clean, and genuinely worth looking at.",
+    "bio": "I'm a web designer and developer with a background in engineering leadership. I build minimal, mobile-first sites that balance craft and function — from simple landing pages to integrated storefronts. When I'm not writing code at work, I'm working on personal projects or building sites for small businesses and people with ideas worth sharing.",
+    "avatarUrl": "",
+    "avatarInitials": "AS"
+  },
+  "skills": [
+    {
+      "category": "Front-End",
+      "icon": "⬡",
+      "items": ["HTML", "CSS", "JavaScript", "React", "Responsive Design", "Accessibility"]
+    },
+    {
+      "category": "Back-End & Systems",
+      "icon": "⬡",
+      "items": ["Node.js", "Kotlin", "Java", "REST APIs", "Serverless Functions", "System Architecture"]
+    },
+    {
+      "category": "CI/CD & Deployment",
+      "icon": "⬡",
+      "items": ["GitHub Actions", "Netlify", "Vercel", "Automated Builds", "Testing Pipelines"]
+    },
+    {
+      "category": "Design & UX",
+      "icon": "⬡",
+      "items": ["Minimalist Layouts", "Typography", "Mobile-First Design", "Figma", "Accessibility"]
+    },
+    {
+      "category": "Leadership",
+      "icon": "⬡",
+      "items": ["Strategic Planning", "Mentorship", "Cross-Team Collaboration", "Problem-Solving"]
+    }
+  ],
+  "contact": {
+    "email": "seeto.alexander@gmail.com",
+    "linkedin": "https://linkedin.com/in/alexseeto",
+    "github": "https://github.com/aseeto"
+  }
+}

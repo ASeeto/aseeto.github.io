@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <filter id="grain" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="linearRGB">
+      <feTurbulence type="turbulence" baseFrequency="0.015 0.003" numOctaves="4" seed="31" result="noise"/>
+      <feColorMatrix type="matrix"
+        values="0.35 0.20 0.05 0 0.38
+                0.18 0.12 0.03 0 0.22
+                0.05 0.03 0.01 0 0.09
+                0    0    0    1 0"
+        in="noise" result="coloredNoise"/>
+      <feBlend in="SourceGraphic" in2="coloredNoise" mode="multiply" result="blended"/>
+      <feComponentTransfer in="blended">
+        <feFuncR type="linear" slope="1.18" intercept="-0.06"/>
+        <feFuncG type="linear" slope="1.12" intercept="-0.04"/>
+        <feFuncB type="linear" slope="1.05" intercept="-0.02"/>
+      </feComponentTransfer>
+    </filter>
+
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#1A0E06" stop-opacity="0.48"/>
+    </radialGradient>
+
+    <linearGradient id="gloss" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.09"/>
+      <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.06"/>
+    </linearGradient>
+
+    <filter id="cardShadow" x="-12%" y="-12%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+
+    <!-- Avatar gradient -->
+    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BFDBFE"/>
+      <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+
+    <!-- Mini card gradients for project grid -->
+    <linearGradient id="mc1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FEF3C7"/>
+      <stop offset="100%" stop-color="#FDE68A"/>
+    </linearGradient>
+    <linearGradient id="mc2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DBEAFE"/>
+      <stop offset="100%" stop-color="#BFDBFE"/>
+    </linearGradient>
+    <linearGradient id="mc3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FCE7F3"/>
+      <stop offset="100%" stop-color="#F9A8D4"/>
+    </linearGradient>
+    <linearGradient id="mc4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D1FAE5"/>
+      <stop offset="100%" stop-color="#A7F3D0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Wood base -->
+  <rect width="800" height="480" fill="#7A5433"/>
+  <rect width="800" height="480" fill="#7A5433" filter="url(#grain)"/>
+  <rect width="800" height="480" fill="url(#vignette)"/>
+  <rect width="800" height="480" fill="url(#gloss)"/>
+
+  <!-- Greenery — top-left corner -->
+  <!-- Leaf 1 (large, behind) -->
+  <g transform="translate(-14, 115) rotate(-12)">
+    <path d="M20,0 C65,-42 108,-65 64,-110 C20,-68 -16,-44 20,0 Z" fill="#4A7C59" stroke="#3A6348" stroke-width="0.8"/>
+    <path d="M20,0 C42,-38 52,-76 64,-110" fill="none" stroke="#3A6348" stroke-width="1" stroke-opacity="0.55"/>
+  </g>
+  <!-- Leaf 2 (medium) -->
+  <g transform="translate(30, 158) rotate(5)">
+    <path d="M16,0 C52,-34 86,-52 50,-88 C16,-54 -12,-35 16,0 Z" fill="#5E9467" stroke="#3A6348" stroke-width="0.7"/>
+    <path d="M16,0 C32,-31 40,-60 50,-88" fill="none" stroke="#3A6348" stroke-width="0.8" stroke-opacity="0.5"/>
+  </g>
+  <!-- Leaf 3 (small, highlight) -->
+  <g transform="translate(68, 190) rotate(18)">
+    <path d="M12,0 C38,-26 62,-40 36,-68 C12,-42 -9,-26 12,0 Z" fill="#6FAF7A" stroke="#3A6348" stroke-width="0.6"/>
+    <path d="M12,0 C24,-24 30,-48 36,-68" fill="none" stroke="#3A6348" stroke-width="0.7" stroke-opacity="0.45"/>
+  </g>
+
+  <!-- Browser mockup card -->
+  <g transform="translate(162, 54) rotate(-1.5, 240, 190)" filter="url(#cardShadow)">
+    <!-- Card body -->
+    <rect x="0" y="0" width="480" height="370" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+
+    <!-- Browser chrome -->
+    <rect x="0" y="0" width="480" height="34" rx="10" fill="#ECEEF0"/>
+    <rect x="0" y="24" width="480" height="10" fill="#ECEEF0"/>
+    <circle cx="18" cy="17" r="5" fill="#FC5F57"/>
+    <circle cx="34" cy="17" r="5" fill="#FDBC2C"/>
+    <circle cx="50" cy="17" r="5" fill="#25C940"/>
+    <rect x="80" y="10" width="300" height="14" rx="7" fill="#FFFFFF" opacity="0.72"/>
+
+    <!-- ── CONTENT: Personal Portfolio Template ── -->
+
+    <!-- Clean nav bar -->
+    <rect x="0" y="34" width="480" height="28" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="0"/>
+    <rect x="0" y="61" width="480" height="1" fill="#E2E8F0"/>
+
+    <!-- Name initials circle (gradient) -->
+    <circle cx="30" cy="48" r="10" fill="url(#avatarGrad)"/>
+    <rect x="44" y="43" width="52" height="8" rx="3" fill="#1E293B" opacity="0.7"/>
+
+    <!-- Nav links right -->
+    <rect x="320" y="44" width="36" height="8" rx="4" fill="#64748B" opacity="0.5"/>
+    <rect x="364" y="44" width="36" height="8" rx="4" fill="#64748B" opacity="0.5"/>
+    <rect x="408" y="43" width="54" height="10" rx="5" fill="#3B82F6"/>
+    <rect x="416" y="47" width="38" height="6" rx="3" fill="#FFFFFF" opacity="0.88"/>
+
+    <!-- About hero (2-column layout) -->
+    <rect x="0" y="62" width="480" height="106" fill="#FAFAFA"/>
+
+    <!-- Left col: text content -->
+    <rect x="22" y="76" width="180" height="14" rx="4" fill="#1E293B" opacity="0.82"/>
+    <rect x="22" y="96" width="140" height="8" rx="3" fill="#3B82F6" opacity="0.75"/>
+    <rect x="22" y="110" width="190" height="6" rx="3" fill="#94A3B8" opacity="0.6"/>
+    <rect x="22" y="121" width="175" height="6" rx="3" fill="#94A3B8" opacity="0.45"/>
+    <rect x="22" y="132" width="155" height="6" rx="3" fill="#94A3B8" opacity="0.35"/>
+    <!-- Work With Me mini btn -->
+    <rect x="22" y="148" width="80" height="14" rx="7" fill="#3B82F6"/>
+    <rect x="32" y="152" width="60" height="6" rx="3" fill="#FFFFFF" opacity="0.88"/>
+
+    <!-- Right col: avatar circle -->
+    <circle cx="370" cy="115" r="40" fill="url(#avatarGrad)" opacity="0.88"/>
+    <!-- Initials text-stub in avatar -->
+    <rect x="352" y="108" width="36" height="12" rx="4" fill="#FFFFFF" opacity="0.9"/>
+
+    <!-- Available badge below avatar -->
+    <rect x="340" y="160" width="60" height="12" rx="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+    <circle cx="348" cy="166" r="3" fill="#34D399"/>
+    <rect x="354" y="162" width="40" height="7" rx="3" fill="#065F46" opacity="0.6"/>
+
+    <!-- Project grid section -->
+    <rect x="0" y="168" width="480" height="1" fill="#E2E8F0"/>
+    <rect x="22" y="176" width="80" height="7" rx="3" fill="#64748B" opacity="0.45"/>
+    <rect x="22" y="188" width="130" height="11" rx="4" fill="#1E293B" opacity="0.7"/>
+
+    <!-- 2×2 mini card grid -->
+    <!-- Row 1, Card 1 -->
+    <rect x="18" y="208" width="208" height="70" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="18" y="208" width="208" height="24" rx="6" fill="url(#mc1)"/>
+    <rect x="18" y="226" width="208" height="10" fill="url(#mc1)"/>
+    <rect x="26" y="240" width="120" height="7" rx="3" fill="#1E293B" opacity="0.55"/>
+    <rect x="26" y="252" width="90" height="6" rx="3" fill="#94A3B8" opacity="0.5"/>
+    <rect x="26" y="262" width="72" height="6" rx="3" fill="#94A3B8" opacity="0.35"/>
+
+    <!-- Row 1, Card 2 -->
+    <rect x="254" y="208" width="208" height="70" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="254" y="208" width="208" height="24" rx="6" fill="url(#mc2)"/>
+    <rect x="254" y="226" width="208" height="10" fill="url(#mc2)"/>
+    <rect x="262" y="240" width="120" height="7" rx="3" fill="#1E293B" opacity="0.55"/>
+    <rect x="262" y="252" width="90" height="6" rx="3" fill="#94A3B8" opacity="0.5"/>
+    <rect x="262" y="262" width="72" height="6" rx="3" fill="#94A3B8" opacity="0.35"/>
+
+    <!-- Row 2, Card 3 -->
+    <rect x="18" y="286" width="208" height="58" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="18" y="286" width="208" height="20" rx="6" fill="url(#mc3)"/>
+    <rect x="18" y="300" width="208" height="8" fill="url(#mc3)"/>
+    <rect x="26" y="315" width="120" height="7" rx="3" fill="#1E293B" opacity="0.55"/>
+    <rect x="26" y="327" width="80" height="6" rx="3" fill="#94A3B8" opacity="0.45"/>
+
+    <!-- Row 2, Card 4 -->
+    <rect x="254" y="286" width="208" height="58" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="254" y="286" width="208" height="20" rx="6" fill="url(#mc4)"/>
+    <rect x="254" y="300" width="208" height="8" fill="url(#mc4)"/>
+    <rect x="262" y="315" width="120" height="7" rx="3" fill="#1E293B" opacity="0.55"/>
+    <rect x="262" y="327" width="80" height="6" rx="3" fill="#94A3B8" opacity="0.45"/>
+
+    <!-- Contact row -->
+    <rect x="0" y="352" width="480" height="8" fill="#F9FAFB"/>
+    <!-- Social icon stubs -->
+    <circle cx="200" cy="356" r="5" fill="#CBD5E1"/>
+    <circle cx="218" cy="356" r="5" fill="#CBD5E1"/>
+    <circle cx="236" cy="356" r="5" fill="#CBD5E1"/>
+    <rect x="255" y="352" width="50" height="8" rx="4" fill="#E2E8F0" opacity="0.5"/>
+
+    <!-- Footer thin line -->
+    <rect x="0" y="360" width="480" height="10" rx="10" fill="#F1F5F9"/>
+    <rect x="0" y="360" width="480" height="2" fill="#E2E8F0"/>
+  </g>
+</svg>

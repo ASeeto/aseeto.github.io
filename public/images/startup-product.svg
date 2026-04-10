@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <filter id="grain" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="linearRGB">
+      <feTurbulence type="turbulence" baseFrequency="0.015 0.003" numOctaves="4" seed="23" result="noise"/>
+      <feColorMatrix type="matrix"
+        values="0.35 0.20 0.05 0 0.38
+                0.18 0.12 0.03 0 0.22
+                0.05 0.03 0.01 0 0.09
+                0    0    0    1 0"
+        in="noise" result="coloredNoise"/>
+      <feBlend in="SourceGraphic" in2="coloredNoise" mode="multiply" result="blended"/>
+      <feComponentTransfer in="blended">
+        <feFuncR type="linear" slope="1.18" intercept="-0.06"/>
+        <feFuncG type="linear" slope="1.12" intercept="-0.04"/>
+        <feFuncB type="linear" slope="1.05" intercept="-0.02"/>
+      </feComponentTransfer>
+    </filter>
+
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#1A0E06" stop-opacity="0.48"/>
+    </radialGradient>
+
+    <linearGradient id="gloss" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.09"/>
+      <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.06"/>
+    </linearGradient>
+
+    <filter id="cardShadow" x="-12%" y="-12%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+
+    <!-- Startup hero gradient: blue to indigo -->
+    <linearGradient id="startupHero" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+
+    <!-- Dark CTA band gradient -->
+    <linearGradient id="ctaBand" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#312E81"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Wood base -->
+  <rect width="800" height="480" fill="#7A5433"/>
+  <rect width="800" height="480" fill="#7A5433" filter="url(#grain)"/>
+  <rect width="800" height="480" fill="url(#vignette)"/>
+  <rect width="800" height="480" fill="url(#gloss)"/>
+
+  <!-- Greenery — bottom-right corner -->
+  <!-- Leaf 1 -->
+  <g transform="translate(748, 348) rotate(22)">
+    <path d="M18,0 C58,-38 96,-58 56,-98 C18,-60 -14,-40 18,0 Z" fill="#4A7C59" stroke="#3A6348" stroke-width="0.8"/>
+    <path d="M18,0 C38,-34 46,-68 56,-98" fill="none" stroke="#3A6348" stroke-width="0.9" stroke-opacity="0.55"/>
+  </g>
+  <!-- Leaf 2 -->
+  <g transform="translate(795, 402) rotate(40)">
+    <path d="M14,0 C46,-30 76,-46 44,-78 C14,-48 -10,-30 14,0 Z" fill="#5E9467" stroke="#3A6348" stroke-width="0.7"/>
+    <path d="M14,0 C28,-28 34,-54 44,-78" fill="none" stroke="#3A6348" stroke-width="0.8" stroke-opacity="0.5"/>
+  </g>
+
+  <!-- Browser mockup card -->
+  <g transform="translate(162, 54) rotate(-1.5, 240, 190)" filter="url(#cardShadow)">
+    <!-- Card body -->
+    <rect x="0" y="0" width="480" height="370" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+
+    <!-- Browser chrome -->
+    <rect x="0" y="0" width="480" height="34" rx="10" fill="#ECEEF0"/>
+    <rect x="0" y="24" width="480" height="10" fill="#ECEEF0"/>
+    <circle cx="18" cy="17" r="5" fill="#FC5F57"/>
+    <circle cx="34" cy="17" r="5" fill="#FDBC2C"/>
+    <circle cx="50" cy="17" r="5" fill="#25C940"/>
+    <rect x="80" y="10" width="300" height="14" rx="7" fill="#FFFFFF" opacity="0.72"/>
+
+    <!-- ── CONTENT: Startup Product Page ── -->
+
+    <!-- Bold hero (blue to indigo gradient) -->
+    <rect x="0" y="34" width="480" height="140" fill="url(#startupHero)"/>
+
+    <!-- Subtle dot grid overlay on hero -->
+    <rect x="0" y="34" width="480" height="140" fill="transparent" opacity="0.06">
+      <!-- dots approximated by slightly lighter rect at intervals — visual suggestion only -->
+    </rect>
+
+    <!-- Nav in hero -->
+    <rect x="18" y="44" width="50" height="10" rx="3" fill="#FFFFFF" opacity="0.9"/>
+    <rect x="338" y="45" width="36" height="8" rx="4" fill="#FFFFFF" opacity="0.5"/>
+    <rect x="381" y="45" width="36" height="8" rx="4" fill="#FFFFFF" opacity="0.5"/>
+    <rect x="424" y="44" width="42" height="10" rx="5" fill="#FFFFFF" opacity="0.22" stroke="#FFFFFF" stroke-width="1"/>
+
+    <!-- Hero headline text stubs -->
+    <rect x="60" y="80" width="360" height="16" rx="5" fill="#FFFFFF" opacity="0.95"/>
+    <rect x="100" y="102" width="280" height="11" rx="4" fill="#FFFFFF" opacity="0.75"/>
+
+    <!-- CTA buttons row -->
+    <rect x="118" y="124" width="110" height="26" rx="7" fill="#FFFFFF"/>
+    <rect x="134" y="132" width="78" height="9" rx="4" fill="#3B82F6" opacity="0.85"/>
+    <rect x="236" y="124" width="110" height="26" rx="7" fill="transparent" stroke="#FFFFFF" stroke-width="1.5"/>
+    <rect x="252" y="132" width="78" height="9" rx="4" fill="#FFFFFF" opacity="0.7"/>
+
+    <!-- Stats row -->
+    <rect x="0" y="174" width="480" height="48" fill="#F9FAFB"/>
+    <rect x="0" y="174" width="480" height="1" fill="#E2E8F0"/>
+    <!-- Stat 1 -->
+    <rect x="55" y="184" width="50" height="14" rx="4" fill="#1E293B" opacity="0.7"/>
+    <rect x="58" y="202" width="44" height="7" rx="3" fill="#94A3B8" opacity="0.65"/>
+    <!-- Stat 2 -->
+    <rect x="215" y="184" width="50" height="14" rx="4" fill="#1E293B" opacity="0.7"/>
+    <rect x="218" y="202" width="44" height="7" rx="3" fill="#94A3B8" opacity="0.65"/>
+    <!-- Stat 3 -->
+    <rect x="375" y="184" width="50" height="14" rx="4" fill="#1E293B" opacity="0.7"/>
+    <rect x="378" y="202" width="44" height="7" rx="3" fill="#94A3B8" opacity="0.65"/>
+    <!-- Dividers -->
+    <rect x="160" y="184" width="1" height="30" fill="#E2E8F0"/>
+    <rect x="320" y="184" width="1" height="30" fill="#E2E8F0"/>
+
+    <!-- Features section (2 columns) -->
+    <rect x="24" y="236" width="10" height="10" rx="5" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+    <rect x="40" y="237" width="160" height="7" rx="3" fill="#1E293B" opacity="0.65"/>
+    <rect x="40" y="249" width="130" height="6" rx="3" fill="#94A3B8" opacity="0.5"/>
+
+    <rect x="254" y="236" width="10" height="10" rx="5" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+    <rect x="270" y="237" width="160" height="7" rx="3" fill="#1E293B" opacity="0.65"/>
+    <rect x="270" y="249" width="130" height="6" rx="3" fill="#94A3B8" opacity="0.5"/>
+
+    <rect x="24" y="268" width="10" height="10" rx="5" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+    <rect x="40" y="269" width="160" height="7" rx="3" fill="#1E293B" opacity="0.65"/>
+    <rect x="40" y="281" width="130" height="6" rx="3" fill="#94A3B8" opacity="0.5"/>
+
+    <rect x="254" y="268" width="10" height="10" rx="5" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+    <rect x="270" y="269" width="160" height="7" rx="3" fill="#1E293B" opacity="0.65"/>
+    <rect x="270" y="281" width="130" height="6" rx="3" fill="#94A3B8" opacity="0.5"/>
+
+    <!-- Pricing CTA band (dark indigo) -->
+    <rect x="0" y="310" width="480" height="60" fill="url(#ctaBand)"/>
+    <!-- Text bar centered -->
+    <rect x="140" y="322" width="200" height="10" rx="4" fill="#FFFFFF" opacity="0.85"/>
+    <rect x="170" y="337" width="140" height="8" rx="3" fill="#FFFFFF" opacity="0.5"/>
+    <!-- Amber highlight button -->
+    <rect x="188" y="350" width="104" height="14" rx="7" fill="#FBBF24"/>
+    <rect x="208" y="354" width="64" height="6" rx="3" fill="#1E1B4B" opacity="0.75"/>
+
+    <!-- Footer bottom -->
+    <rect x="0" y="356" width="480" height="14" fill="#0F172A"/>
+    <rect x="0" y="360" width="480" height="10" fill="#0F172A"/>
+    <rect x="0" y="370" width="480" height="10" rx="10" fill="#0F172A"/>
+  </g>
+</svg>
